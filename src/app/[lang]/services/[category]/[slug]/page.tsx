@@ -15,18 +15,6 @@ interface ServiceDetailPageProps {
   params: Promise<{ lang: string; category: string; slug: string }>;
 }
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  const dictionary = getDictionary("fr");
-  return dictionary.services.categories.flatMap((category) =>
-    category.services.map((service) => ({
-      category: category.slug,
-      slug: service.slug,
-    })),
-  );
-}
-
 export default async function ServiceDetailPage({ params }: ServiceDetailPageProps) {
   const { lang, category, slug } = await params;
 
