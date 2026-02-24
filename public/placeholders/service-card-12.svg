@@ -1,0 +1,12 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='760' viewBox='0 0 1200 760'>
+  <defs>
+    <linearGradient id='g' x1='0' x2='1' y1='0' y2='1'>
+      <stop offset='0%' stop-color='#173c7d'/>
+      <stop offset='100%' stop-color='#2f5ea5'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='760' fill='url(#g)'/>
+  <circle cx='' cy='' r='' fill='rgba(255,255,255,0.12)'/>
+  <circle cx='' cy='' r='' fill='rgba(255,255,255,0.09)'/>
+  <text x='50%' y='52%' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-size='' font-weight='700' letter-spacing='2'>SERVICE CARD 12</text>
+</svg>
