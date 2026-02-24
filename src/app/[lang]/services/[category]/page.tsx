@@ -7,6 +7,15 @@ interface ServiceCategoryPageProps {
   params: Promise<{ lang: string; category: string }>;
 }
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  const dictionary = getDictionary("fr");
+  return dictionary.services.categories.map((category) => ({
+    category: category.slug,
+  }));
+}
+
 export default async function ServiceCategoryPage({
   params,
 }: ServiceCategoryPageProps) {
