@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -117,7 +118,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
     <div ref={rootRef} className="fixed inset-x-0 top-0 z-50">
       <header
         className={cn(
-          "border-b border-blue-500/30 bg-blue-900 text-white transition-all duration-300",
+          "border-b border-cyan-300/35 bg-blue-900 text-white transition-all duration-300",
           isScrolled && "bg-blue-950/95 shadow-[0_8px_20px_rgba(2,6,23,0.3)] backdrop-blur",
         )}
       >
@@ -126,9 +127,25 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             href={`/${lang}`}
             className="flex shrink-0 items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] sm:text-sm sm:tracking-[0.14em]"
           >
-            <span className="inline-block h-6 w-6 rounded-full border border-white/70 bg-blue-800" />
-            <span className="hidden sm:inline">{dictionary.logoLabel}</span>
-            <span className="sm:hidden">TP</span>
+            <Image
+              src="/brand/terra-pretiosa-mark.png"
+              alt={dictionary.logoLabel}
+              width={544}
+              height={544}
+              className="tp-logo-glow h-8 w-8 rounded-full object-contain sm:hidden"
+              sizes="32px"
+              priority
+            />
+            <Image
+              src="/brand/terra-pretiosa-logo.png"
+              alt={dictionary.logoLabel}
+              width={700}
+              height={162}
+              className="tp-logo-glow hidden h-6 w-auto object-contain sm:block lg:h-7"
+              sizes="(max-width: 1024px) 120px, 150px"
+              priority
+            />
+            <span className="sr-only">{dictionary.logoLabel}</span>
           </Link>
 
           <nav className="mx-auto hidden items-center gap-4 lg:flex">
@@ -136,7 +153,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
               type="button"
               className={cn(
                 "px-3 py-1 text-sm font-medium transition hover:-translate-y-0.5",
-                openMenu === "services" ? "text-blue-200" : "hover:text-blue-200",
+                openMenu === "services" ? "text-cyan-200" : "hover:text-cyan-200",
               )}
               onClick={() =>
                 setOpenMenu((prev) => (prev === "services" ? null : "services"))
@@ -148,7 +165,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
               type="button"
               className={cn(
                 "px-3 py-1 text-sm font-medium transition hover:-translate-y-0.5",
-                openMenu === "company" ? "text-blue-200" : "hover:text-blue-200",
+                openMenu === "company" ? "text-cyan-200" : "hover:text-cyan-200",
               )}
               onClick={() =>
                 setOpenMenu((prev) => (prev === "company" ? null : "company"))
@@ -158,13 +175,13 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             </button>
             <Link
               href={`/${lang}/team`}
-              className="px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:text-blue-200"
+              className="px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:text-cyan-200"
             >
               {dictionary.nav.team}
             </Link>
             <Link
               href={`/${lang}/contact`}
-              className="px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:text-blue-200"
+              className="px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:text-cyan-200"
             >
               {dictionary.nav.contact}
             </Link>
@@ -174,11 +191,11 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="transition hover:text-blue-200"
+              className="transition hover:text-cyan-200"
             >
               {dictionary.nav.search}
             </button>
-            <Link href={switchHref} className="transition hover:text-blue-200">
+            <Link href={switchHref} className="transition hover:text-cyan-200">
               {altLang.toUpperCase()}
             </Link>
           </div>
@@ -253,7 +270,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-4">
-              <p className="text-xs uppercase tracking-[0.18em] text-blue-200">
+              <p className="text-xs uppercase tracking-[0.18em] text-cyan-200">
                 {dictionary.siteName}
               </p>
             </div>
@@ -291,7 +308,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
                         <Link
                           href={`/${lang}/services/${category.slug}`}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block rounded-sm px-2 py-1.5 text-sm font-semibold text-blue-200 transition hover:bg-white/10 hover:text-white"
+                          className="block rounded-sm px-2 py-1.5 text-sm font-semibold text-cyan-200 transition hover:bg-white/10 hover:text-white"
                         >
                           {dictionary.common.learnMore}
                         </Link>

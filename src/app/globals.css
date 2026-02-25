@@ -3,6 +3,8 @@
 :root {
   --tp-blue-900: #0d2e66;
   --tp-blue-800: #19458a;
+  --tp-accent-500: #66cccc;
+  --tp-accent-300: #9be7e7;
   --tp-charcoal-900: #171a1f;
   --tp-charcoal-800: #232830;
   --tp-neutral-100: #f3f5f7;
@@ -47,6 +49,10 @@ body {
     linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 34px 34px;
+}
+
+.tp-logo-glow {
+  filter: drop-shadow(0 0 12px rgba(102, 204, 204, 0.28));
 }
 
 @keyframes tpDrift {

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary, Lang } from "@/content/types";
 
@@ -16,7 +17,7 @@ export function Footer({ lang, dictionary }: FooterProps) {
         <div className="md:hidden">
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
-              <p className="tp-heading text-sm text-blue-200">{dictionary.siteName}</p>
+              <p className="tp-heading text-sm text-cyan-200">{dictionary.siteName}</p>
               <p className="mt-3 text-sm text-white/75">
                 438 N Frederick Ave
                 <br />
@@ -25,9 +26,17 @@ export function Footer({ lang, dictionary }: FooterProps) {
             </div>
             <Link
               href={`/${lang}`}
-              className="inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-blue-800 text-sm font-semibold uppercase tracking-[0.16em] text-white ring-2 ring-white/20 transition hover:scale-105 hover:bg-blue-700"
+              className="inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-cyan-300/45 bg-white/5 ring-2 ring-white/20 transition hover:scale-105 hover:bg-white/10"
+              aria-label={dictionary.logoLabel}
             >
-              TP
+              <Image
+                src="/brand/terra-pretiosa-mark.png"
+                alt={dictionary.logoLabel}
+                width={544}
+                height={544}
+                className="tp-logo-glow h-14 w-14 object-contain"
+                sizes="56px"
+              />
             </Link>
           </div>
 
@@ -60,7 +69,7 @@ export function Footer({ lang, dictionary }: FooterProps) {
           </div>
 
           <div className="mt-7 border-t border-white/10 pt-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-blue-200">
+            <p className="text-xs font-semibold uppercase tracking-wide text-cyan-200">
               {dictionary.footer.quickLinksTitle}
             </p>
             <div className="mt-3 flex flex-wrap gap-3 text-sm">
@@ -96,12 +105,20 @@ export function Footer({ lang, dictionary }: FooterProps) {
           <div className="space-y-5">
             <Link
               href={`/${lang}`}
-              className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-blue-800 text-lg font-semibold uppercase tracking-[0.16em] text-white ring-2 ring-white/20 transition hover:scale-105 hover:bg-blue-700"
+              className="inline-flex h-20 w-20 items-center justify-center rounded-full border border-cyan-300/45 bg-white/5 ring-2 ring-white/20 transition hover:scale-105 hover:bg-white/10"
+              aria-label={dictionary.logoLabel}
             >
-              TP
+              <Image
+                src="/brand/terra-pretiosa-mark.png"
+                alt={dictionary.logoLabel}
+                width={544}
+                height={544}
+                className="tp-logo-glow h-16 w-16 object-contain"
+                sizes="64px"
+              />
             </Link>
             <div>
-              <p className="tp-heading text-sm text-blue-200">{dictionary.siteName}</p>
+              <p className="tp-heading text-sm text-cyan-200">{dictionary.siteName}</p>
               <p className="mt-4 text-sm text-white/75">
                 438 N Frederick Ave
                 <br />
@@ -109,7 +126,7 @@ export function Footer({ lang, dictionary }: FooterProps) {
               </p>
               <Link
                 href={`/${lang}/mission`}
-                className="mt-5 inline-flex text-sm font-semibold uppercase tracking-wide text-blue-200 transition hover:text-white"
+                className="mt-5 inline-flex text-sm font-semibold uppercase tracking-wide text-cyan-200 transition hover:text-white"
               >
                 {dictionary.nav.mission}
               </Link>
@@ -144,7 +161,7 @@ export function Footer({ lang, dictionary }: FooterProps) {
           <p>{dictionary.footer.legal}</p>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span className="font-semibold uppercase tracking-wide text-blue-200">
+            <span className="font-semibold uppercase tracking-wide text-cyan-200">
               {dictionary.footer.quickLinksTitle}
             </span>
             {dictionary.footer.quickLinks.map((link) => (

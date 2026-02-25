@@ -59,7 +59,7 @@ export function MegaMenu({
     return (
       <div className="tp-enter-up absolute inset-x-0 top-full z-40 border-t border-white/10 bg-neutral-900 shadow-2xl">
         <div className="tp-container py-8">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
             {dictionary.nav.companyMenu}
           </p>
           <div className="space-y-4">
@@ -67,7 +67,7 @@ export function MegaMenu({
               <Link
                 key={`${link.href}-${index}`}
                 href={link.href}
-                className="block text-xl font-medium text-white transition hover:text-blue-200"
+                className="block text-xl font-medium text-white transition hover:text-cyan-200"
                 onClick={onClose}
               >
                 {link.label}
@@ -86,12 +86,17 @@ export function MegaMenu({
           <div className="hidden items-start justify-center lg:flex">
             <Link
               href={`/${lang}`}
-              className="group mt-6 inline-flex h-28 w-28 items-center justify-center rounded-full bg-blue-800 ring-2 ring-white/20 transition hover:scale-105 hover:bg-blue-700"
+              className="group mt-6 inline-flex h-28 w-28 items-center justify-center rounded-full border border-cyan-300/50 bg-white/5 ring-2 ring-white/20 transition hover:scale-105 hover:bg-white/10"
               onClick={onClose}
             >
-              <span className="text-xl font-semibold uppercase tracking-[0.2em] text-white">
-                TP
-              </span>
+              <Image
+                src="/brand/terra-pretiosa-mark.png"
+                alt={dictionary.logoLabel}
+                width={544}
+                height={544}
+                className="tp-logo-glow h-24 w-24 object-contain"
+                sizes="96px"
+              />
             </Link>
           </div>
 
@@ -103,7 +108,7 @@ export function MegaMenu({
                 className={cn(
                   "group flex w-full items-center justify-between rounded-sm px-2 py-2 text-left text-base transition",
                   category.slug === activeCategory.slug
-                    ? "text-blue-300"
+                    ? "text-cyan-300"
                     : "text-white/90 hover:text-white",
                 )}
                 onMouseEnter={() => onCategoryChange(category.slug)}
@@ -115,7 +120,7 @@ export function MegaMenu({
                   className={cn(
                     "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition",
                     category.slug === activeCategory.slug
-                      ? "border-blue-300 bg-blue-400/20 text-blue-100"
+                      ? "border-cyan-300 bg-cyan-400/20 text-cyan-100"
                       : "border-white/35 text-white/70 group-hover:border-white group-hover:text-white",
                   )}
                 >
@@ -126,7 +131,7 @@ export function MegaMenu({
           </div>
 
           <div className="min-h-[260px]">
-            <p className="mb-5 text-xs uppercase tracking-[0.22em] text-blue-200">
+            <p className="mb-5 text-xs uppercase tracking-[0.22em] text-cyan-200">
               {activeCategory.title}
             </p>
             <div key={activeCategory.slug} className="tp-enter-up grid grid-cols-2 gap-x-6 gap-y-8 xl:grid-cols-3">
@@ -159,7 +164,7 @@ export function MegaMenu({
             <div className="mt-8">
               <Link
                 href={`/${lang}/services/${activeCategory.slug}`}
-                className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-blue-200 transition hover:text-white"
+                className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-cyan-200 transition hover:text-white"
                 onClick={onClose}
               >
                 {dictionary.common.learnMore}
