@@ -376,7 +376,7 @@ export const en: Dictionary = {
   contact: {
     pageTitle: "Contact",
     intro:
-      "Let us discuss your technical, environmental, and mineral governance priorities.",
+      "Please complete the form below and our team will contact you shortly.",
     hqTitle: "Headquarters",
     hqAddress: "438 N Frederick Ave, Gaithersburg, MD 20877",
     corridorTitle: "Activity corridor",
@@ -392,18 +392,60 @@ export const en: Dictionary = {
     phoneValue: "To be defined",
     emailLabel: "Email",
     emailValue: "To be created",
-    formTitle: "Send us a message",
+    formTitle: "Contact us",
     formSuccess: "Thank you, your message has been sent.",
     formFields: {
-      name: "Full name",
-      email: "Email",
-      subject: "Subject",
-      message: "Message",
-      submit: "Submit",
+      firstName: "First Name *",
+      lastName: "Last Name *",
+      email: "Email *",
+      phoneOptional: "Phone (optional)",
+      serviceLocation: "Service Location *",
+      stateProvince: "State/Province",
+      serviceIndustry: "Service Industry",
+      enquiryType: "Type of enquiry *",
+      message: "Message *",
+      consentText: "I agree to the",
+      privacyPolicyLabel: "Privacy Policy",
+      submit: "SUBMIT",
+    },
+    formOptions: {
+      selectPlaceholder: "-",
+      serviceLocations: [
+        "Burkina Faso",
+        "DRC",
+        "Guinea Conakry",
+        "Senegal",
+        "Niger",
+        "Mali",
+        "United States",
+      ],
+      statesProvinces: [
+        "Kadiogo",
+        "Haut-Katanga",
+        "Conakry",
+        "Dakar",
+        "Niamey",
+        "Bamako",
+        "Maryland",
+      ],
+      serviceIndustries: [
+        "Testing & Analysis",
+        "Mining Operations",
+        "Training",
+        "Environment",
+        "Mineral Governance",
+      ],
+      enquiryTypes: [
+        "Service request",
+        "Technical question",
+        "Partnership",
+        "Other",
+      ],
     },
     formErrors: {
       required: "This field is required.",
       email: "Invalid email address.",
+      consent: "You must accept the privacy policy.",
     },
   },
   mission: {
@@ -604,4 +646,5 @@ export const en: Dictionary = {
     noResult: "No result for this query.",
   },
 };
+
 

@@ -181,15 +181,30 @@ export interface Dictionary {
     formTitle: string;
     formSuccess: string;
     formFields: {
-      name: string;
+      firstName: string;
+      lastName: string;
       email: string;
-      subject: string;
+      phoneOptional: string;
+      serviceLocation: string;
+      stateProvince: string;
+      serviceIndustry: string;
+      enquiryType: string;
       message: string;
+      consentText: string;
+      privacyPolicyLabel: string;
       submit: string;
+    };
+    formOptions: {
+      selectPlaceholder: string;
+      serviceLocations: string[];
+      statesProvinces: string[];
+      serviceIndustries: string[];
+      enquiryTypes: string[];
     };
     formErrors: {
       required: string;
       email: string;
+      consent: string;
     };
   };
   mission: {
