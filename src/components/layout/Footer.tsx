@@ -8,7 +8,8 @@ interface FooterProps {
 
 export function Footer({ lang, dictionary }: FooterProps) {
   return (
-    <footer className="bg-neutral-900 text-white">
+    <footer className="relative overflow-hidden bg-neutral-900 text-white">
+      <div className="tp-ambient-grid absolute inset-0 opacity-20" />
       <div className="tp-container py-12">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -34,7 +35,7 @@ export function Footer({ lang, dictionary }: FooterProps) {
                   <Link
                     key={`${column.title}-${link.href}`}
                     href={link.href}
-                    className="block text-sm text-white/80 transition hover:text-white"
+                    className="block text-sm text-white/80 transition hover:translate-x-1 hover:text-white"
                   >
                     {link.label}
                   </Link>

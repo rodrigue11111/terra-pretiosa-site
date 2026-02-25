@@ -14,6 +14,7 @@ body {
     radial-gradient(circle at 85% 0%, rgba(25, 69, 138, 0.08), transparent 30%),
     #fff;
   color: #1f2937;
+  animation: tpDrift 18s ease-in-out infinite alternate;
 }
 
 .tp-container {
@@ -25,9 +26,92 @@ body {
 }
 
 .tp-blue-button {
-  @apply inline-flex items-center justify-center bg-blue-900 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-blue-950;
+  @apply inline-flex items-center justify-center bg-blue-900 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition duration-300 hover:-translate-y-0.5 hover:bg-blue-950 hover:shadow-[0_12px_24px_rgba(13,46,102,0.35)];
 }
 
 .tp-outline-button {
-  @apply inline-flex items-center justify-center border border-white/70 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white/10;
+  @apply inline-flex items-center justify-center border border-white/70 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/10;
+}
+
+.tp-card-lift {
+  @apply transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_18px_30px_rgba(15,23,42,0.18)];
+}
+
+.tp-soft-panel {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(243, 245, 247, 0.88));
+  backdrop-filter: blur(2px);
+}
+
+.tp-ambient-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+@keyframes tpDrift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 0 0;
+  }
+  100% {
+    background-position: 6% 2%, 96% 4%, 0 0;
+  }
+}
+
+@keyframes tpFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes tpPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+@keyframes tpProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes tpFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tp-enter-up {
+  animation: tpFadeUp 0.28s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

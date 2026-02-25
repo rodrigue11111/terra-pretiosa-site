@@ -20,6 +20,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const [openMenu, setOpenMenu] = useState<"services" | "company" | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [activeCategorySlug, setActiveCategorySlug] = useState<string>(
     megaMenuCategoryOrder[0],
   );
@@ -73,9 +74,26 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
     };
   }, [openMenu, searchOpen]);
 
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
     <div ref={rootRef} className="fixed inset-x-0 top-0 z-50">
-      <header className="border-b border-blue-500/30 bg-blue-900 text-white">
+      <header
+        className={cn(
+          "border-b border-blue-500/30 bg-blue-900 text-white transition-all duration-300",
+          isScrolled && "bg-blue-950/95 shadow-[0_8px_20px_rgba(2,6,23,0.3)] backdrop-blur",
+        )}
+      >
         <div className="tp-container flex h-14 items-center gap-3">
           <Link
             href={`/${lang}`}
@@ -89,7 +107,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             <button
               type="button"
               className={cn(
-                "px-3 py-1 text-sm font-medium transition",
+                "px-3 py-1 text-sm font-medium transition hover:-translate-y-0.5",
                 openMenu === "services" ? "text-blue-200" : "hover:text-blue-200",
               )}
               onClick={() =>
@@ -101,7 +119,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             <button
               type="button"
               className={cn(
-                "px-3 py-1 text-sm font-medium transition",
+                "px-3 py-1 text-sm font-medium transition hover:-translate-y-0.5",
                 openMenu === "company" ? "text-blue-200" : "hover:text-blue-200",
               )}
               onClick={() =>
@@ -110,12 +128,15 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             >
               {dictionary.nav.company}
             </button>
-            <Link href={`/${lang}/team`} className="px-3 py-1 text-sm hover:text-blue-200">
+            <Link
+              href={`/${lang}/team`}
+              className="px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:text-blue-200"
+            >
               {dictionary.nav.team}
             </Link>
             <Link
               href={`/${lang}/contact`}
-              className="px-3 py-1 text-sm hover:text-blue-200"
+              className="px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:text-blue-200"
             >
               {dictionary.nav.contact}
             </Link>

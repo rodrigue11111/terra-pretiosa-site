@@ -57,7 +57,7 @@ export function MegaMenu({
     ];
 
     return (
-      <div className="absolute inset-x-0 top-full z-40 border-t border-white/10 bg-neutral-900 shadow-2xl">
+      <div className="tp-enter-up absolute inset-x-0 top-full z-40 border-t border-white/10 bg-neutral-900 shadow-2xl">
         <div className="tp-container py-8">
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">
             {dictionary.nav.companyMenu}
@@ -80,7 +80,7 @@ export function MegaMenu({
   }
 
   return (
-    <div className="absolute inset-x-0 top-full z-40 border-t border-white/10 bg-neutral-900 shadow-2xl">
+    <div className="tp-enter-up absolute inset-x-0 top-full z-40 border-t border-white/10 bg-neutral-900 shadow-2xl">
       <div className="tp-container grid gap-8 py-8 md:grid-cols-[280px_1fr]">
         <div className="space-y-2">
           {categories.map((category: ServiceCategory) => (
@@ -91,7 +91,7 @@ export function MegaMenu({
                 "w-full rounded-sm px-4 py-3 text-left text-sm font-semibold uppercase tracking-wide transition",
                 category.slug === activeCategory.slug
                   ? "bg-blue-900 text-white"
-                  : "text-blue-100 hover:bg-white/10 hover:text-white",
+                  : "text-blue-100 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white",
               )}
               onMouseEnter={() => onCategoryChange(category.slug)}
               onFocus={() => onCategoryChange(category.slug)}
@@ -110,7 +110,7 @@ export function MegaMenu({
               <Link
                 key={service.slug}
                 href={`/${lang}/services/${activeCategory.slug}/${service.slug}`}
-                className="group flex items-center gap-3 rounded-sm border border-white/10 bg-white/5 p-2 transition hover:bg-white/10"
+                className="tp-card-lift group flex items-center gap-3 rounded-sm border border-white/10 bg-white/5 p-2 transition hover:bg-white/10"
                 onClick={onClose}
               >
                 <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full ring-1 ring-white/20">

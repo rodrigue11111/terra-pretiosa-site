@@ -5,6 +5,7 @@ import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { NewsInsights } from "@/components/home/NewsInsights";
 import { ServiceCardsGrid } from "@/components/home/ServiceCardsGrid";
 import { ServicesSitemapHero } from "@/components/home/ServicesSitemapHero";
+import { Reveal } from "@/components/motion/Reveal";
 import { getDictionary, isSupportedLang } from "@/content";
 
 interface HomePageProps {
@@ -37,19 +38,24 @@ export default async function HomePage({ params }: HomePageProps) {
       <NewsInsights dictionary={dictionary} />
 
       <section className="bg-blue-900 py-12 text-white">
-        <div className="tp-container flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
-          <h2 className="text-2xl font-semibold uppercase tracking-[0.06em] sm:text-3xl">
-            {dictionary.home.ctaBand.title}
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <Link href={`/${lang}/mission`} className="tp-outline-button">
-              {dictionary.home.ctaBand.missionCta}
-            </Link>
-            <Link href={`/${lang}/contact`} className="tp-blue-button bg-white text-blue-900 hover:bg-blue-100">
-              {dictionary.home.ctaBand.contactCta}
-            </Link>
+        <Reveal y={20}>
+          <div className="tp-container flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
+            <h2 className="text-2xl font-semibold uppercase tracking-[0.06em] sm:text-3xl">
+              {dictionary.home.ctaBand.title}
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <Link href={`/${lang}/mission`} className="tp-outline-button tp-card-lift">
+                {dictionary.home.ctaBand.missionCta}
+              </Link>
+              <Link
+                href={`/${lang}/contact`}
+                className="tp-blue-button tp-card-lift bg-white text-blue-900 hover:bg-blue-100"
+              >
+                {dictionary.home.ctaBand.contactCta}
+              </Link>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

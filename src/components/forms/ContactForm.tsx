@@ -70,10 +70,13 @@ export function ContactForm({ dictionary }: ContactFormProps) {
   };
 
   const fieldClass =
-    "w-full rounded-sm border border-neutral-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-700";
+    "w-full rounded-sm border border-neutral-300 bg-white px-4 py-3 text-sm outline-none transition duration-300 focus:-translate-y-0.5 focus:border-blue-700 focus:shadow-[0_8px_18px_rgba(29,78,216,0.16)]";
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 rounded-sm border border-neutral-200 bg-white p-6">
+    <form
+      onSubmit={onSubmit}
+      className="tp-card-lift space-y-4 rounded-sm border border-neutral-200 bg-white p-6"
+    >
       <div>
         <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-600">
           {dictionary.contact.formFields.name}
@@ -143,7 +146,7 @@ export function ContactForm({ dictionary }: ContactFormProps) {
       </button>
 
       {submitted && !hasErrors ? (
-        <p className="rounded-sm border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+        <p className="tp-enter-up rounded-sm border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
           {dictionary.contact.formSuccess}
         </p>
       ) : null}

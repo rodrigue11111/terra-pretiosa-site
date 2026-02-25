@@ -77,7 +77,7 @@ export function SearchOverlay({
       aria-label={dictionary.search.title}
     >
       <div
-        className="tp-container mt-24 max-w-4xl rounded-sm border border-white/10 bg-neutral-900 p-6"
+        className="tp-container tp-enter-up mt-24 max-w-4xl rounded-sm border border-white/10 bg-neutral-900 p-6"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
@@ -112,7 +112,7 @@ export function SearchOverlay({
                 key={`${item.href}-${item.label}`}
                 href={item.href}
                 onClick={onClose}
-                className="block rounded-sm border border-white/10 px-4 py-3 text-sm text-white transition hover:bg-white/10"
+                className="tp-card-lift block rounded-sm border border-white/10 px-4 py-3 text-sm text-white transition hover:bg-white/10"
               >
                 {item.label}
               </Link>
