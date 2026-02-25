@@ -126,7 +126,11 @@ const serviceDetails: Record<
       "Analyse du cadre juridique",
       "Consultation des parties prenantes",
       "Définition des standards environnementaux",
-      "Mécanismes de contrôle et plan de mise en œuvre",
+      "Intégration des exigences ESG et standards internationaux",
+      "Mise en place des mécanismes de contrôle et d'application",
+      "Structuration d'un mécanisme financier de garantie environnementale",
+      "Plan de mise en œuvre et renforcement des capacités institutionnelles",
+      "Évaluation de l'impact économique et ajustement stratégique",
     ],
   },
   "evaluation-et-rehabilitation-des-sites": {
@@ -173,7 +177,10 @@ const serviceDetails: Record<
       "Analyse physico-chimique (pH, métaux lourds, sulfates, cyanures, arsenic)",
       "Diagnostic des sources de pollution",
       "Conception de systèmes de traitement adaptés",
-      "Gestion des bassins, eaux pluviales et recyclage d'eau",
+      "Traitement du drainage minier acide (AMD)",
+      "Mise en place de bassins de rétention et gestion des eaux pluviales",
+      "Optimisation des circuits de recyclage d'eau industrielle",
+      "Plan de surveillance et monitoring environnemental continu",
     ],
   },
   "strategie-recettes-minieres": {
@@ -420,6 +427,12 @@ export const fr: Dictionary = {
             "Formations et renforcement de capacités pour opérateurs, institutions et administrations.",
           href: "/fr/services/formations",
         },
+        {
+          title: "Conseil en gouvernance des ressources minérales",
+          excerpt:
+            "Appui stratégique aux États pour structurer les recettes minières, le contrôle de production et la traçabilité export.",
+          href: "/fr/services/gouvernance-minerale",
+        },
       ],
     },
     ctaBand: {
@@ -438,7 +451,7 @@ export const fr: Dictionary = {
       },
       {
         title: "Positionnement",
-        text: "Nous sommes une firme stratégique spécialisée en prestation de services et gouvernance des ressources minérales, résilience des chaînes d'approvisionnement et industrialisation durable en Afrique.",
+        text: "Nous sommes une firme stratégique spécialisée en prestation de services et gouvernance des ressources minérales critiques, résilience des chaînes d'approvisionnement et industrialisation durable en Afrique.",
       },
       {
         title: "Ambition",
@@ -474,6 +487,7 @@ export const fr: Dictionary = {
       "Formation locale et emploi des jeunes opérateurs",
       "Fourniture d'équipements écoénergétiques",
       "Exhaure et traitement des eaux",
+      "Attraction du capital-investissement et mobilisation du capital humain pour soutenir une croissance forte du secteur",
     ],
     ambitionsTitle: "Nos ambitions",
     ambitionsBullets: [
