@@ -278,14 +278,36 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
               {mobileServicesOpen ? (
                 <div className="space-y-2 rounded-sm border border-white/10 bg-white/5 p-3">
                   {dictionary.services.categories.map((category) => (
-                    <Link
+                    <details
                       key={category.slug}
-                      href={`/${lang}/services/${category.slug}`}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block rounded-sm px-2 py-2 text-sm text-white/90 transition hover:bg-white/10 hover:text-white"
+                      className="rounded-sm border border-white/10 bg-neutral-900/70"
                     >
-                      {category.title}
-                    </Link>
+                      <summary className="flex cursor-pointer list-none items-center justify-between px-3 py-2 text-sm font-semibold text-white">
+                        <span className="pr-3 leading-snug">{category.title}</span>
+                        <span className="text-xs text-white/70">{">"}</span>
+                      </summary>
+
+                      <div className="space-y-1 border-t border-white/10 px-3 py-2">
+                        <Link
+                          href={`/${lang}/services/${category.slug}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block rounded-sm px-2 py-1.5 text-sm font-semibold text-blue-200 transition hover:bg-white/10 hover:text-white"
+                        >
+                          {dictionary.common.learnMore}
+                        </Link>
+
+                        {category.services.map((service) => (
+                          <Link
+                            key={service.slug}
+                            href={`/${lang}/services/${category.slug}/${service.slug}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block rounded-sm px-2 py-1.5 text-sm text-white/85 transition hover:bg-white/10 hover:text-white"
+                          >
+                            {service.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </details>
                   ))}
                 </div>
               ) : null}
