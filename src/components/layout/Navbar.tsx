@@ -124,10 +124,11 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
         <div className="tp-container flex h-14 items-center gap-3">
           <Link
             href={`/${lang}`}
-            className="flex shrink-0 items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em]"
+            className="flex shrink-0 items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] sm:text-sm sm:tracking-[0.14em]"
           >
             <span className="inline-block h-6 w-6 rounded-full border border-white/70 bg-blue-800" />
-            {dictionary.logoLabel}
+            <span className="hidden sm:inline">{dictionary.logoLabel}</span>
+            <span className="sm:hidden">TP</span>
           </Link>
 
           <nav className="mx-auto hidden items-center gap-4 lg:flex">
@@ -186,13 +187,26 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="rounded-full border border-white/30 px-3 py-1 text-xs font-medium uppercase tracking-wide transition hover:border-white/70 hover:bg-white/10"
+              aria-label={dictionary.nav.search}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 transition hover:border-white/70 hover:bg-white/10"
             >
-              {dictionary.nav.search}
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
+              </svg>
             </button>
             <Link
               href={switchHref}
-              className="rounded-full border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide transition hover:border-white/70 hover:bg-white/10"
+              className="inline-flex h-9 min-w-10 items-center justify-center rounded-full border border-white/30 px-2.5 text-xs font-semibold uppercase tracking-wide transition hover:border-white/70 hover:bg-white/10"
             >
               {altLang.toUpperCase()}
             </Link>

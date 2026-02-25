@@ -143,10 +143,10 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
   const visualRadius = reduceMotion ? 32 : spotlightRadius;
 
   return (
-    <section className={cn("py-6 sm:py-8", className)}>
+    <section className={cn("py-4 sm:py-8", className)}>
       <div ref={sectionRef} className="relative left-1/2 w-screen -translate-x-1/2">
         <div className="overflow-hidden border-y border-white/10 bg-neutral-900 shadow-[0_18px_40px_rgba(15,23,42,0.28)]">
-          <div className="relative h-[260px] sm:h-[320px] lg:h-[360px]">
+          <div className="relative h-[210px] sm:h-[320px] lg:h-[360px]">
             <div className="absolute inset-0 grid grid-cols-1 sm:grid-cols-3">
               {displayItems.map((item, index) => (
                 <div key={`${item.label}-base-${index}`} className="relative">

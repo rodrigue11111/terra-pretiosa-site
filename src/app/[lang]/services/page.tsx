@@ -22,31 +22,59 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
     image: category.image,
     label: category.title,
   }));
+  const heroImages = [
+    dictionary.services.categories[0]?.image ?? "/placeholders/services-landing.svg",
+    dictionary.services.categories[1]?.image ?? "/placeholders/services-landing.svg",
+    dictionary.services.categories[2]?.image ?? "/placeholders/services-landing.svg",
+  ];
 
   return (
     <>
-      <section className="bg-neutral-100 py-16">
-        <div className="tp-container grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <section className="bg-neutral-100 py-10 sm:py-14 lg:py-16">
+        <div className="tp-container grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal x={-24} y={20}>
             <div>
               <p className="tp-heading text-xs text-blue-900">{dictionary.nav.services}</p>
-              <h1 className="mt-4 text-4xl font-semibold uppercase tracking-[0.07em] text-blue-900 sm:text-5xl">
+              <h1 className="mt-3 text-3xl font-semibold uppercase tracking-[0.06em] text-blue-900 sm:text-5xl">
                 {dictionary.services.landingTitle}
               </h1>
-              <p className="mt-4 max-w-3xl text-slate-700">
+              <p className="mt-3 max-w-3xl text-base text-slate-700">
                 {dictionary.services.landingIntro}
               </p>
             </div>
           </Reveal>
           <Reveal x={24} y={20} delayMs={80}>
-            <div className="tp-card-lift relative min-h-[300px] overflow-hidden rounded-sm">
-              <Image
-                src="/placeholders/services-landing.svg"
-                alt={dictionary.services.landingTitle}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-              />
+            <div className="tp-card-lift relative overflow-hidden rounded-sm border border-neutral-200 bg-white p-2">
+              <div className="grid min-h-[170px] grid-cols-2 gap-2 sm:min-h-[240px]">
+                <div className="relative row-span-2 overflow-hidden rounded-sm">
+                  <Image
+                    src={heroImages[0]}
+                    alt={dictionary.services.landingTitle}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="relative overflow-hidden rounded-sm">
+                  <Image
+                    src={heroImages[1]}
+                    alt={dictionary.services.landingTitle}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 20vw"
+                  />
+                </div>
+                <div className="relative overflow-hidden rounded-sm">
+                  <Image
+                    src={heroImages[2]}
+                    alt={dictionary.services.landingTitle}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 20vw"
+                  />
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
