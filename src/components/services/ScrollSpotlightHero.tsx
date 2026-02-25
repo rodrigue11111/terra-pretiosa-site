@@ -109,15 +109,10 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
   const spotlightX = 18 + progress * 62;
   const spotlightY = 50 + Math.sin(progress * Math.PI) * 7;
   const spotlightRadius = 24 + progress * 10;
-  const activeIndex = Math.min(
-    displayItems.length - 1,
-    Math.round(progress * (displayItems.length - 1)),
-  );
-
   return (
     <section className={cn("py-6 sm:py-8", className)}>
-      <div ref={sectionRef} className="tp-container">
-        <div className="overflow-hidden rounded-sm border border-white/10 bg-neutral-900 shadow-[0_18px_40px_rgba(15,23,42,0.28)]">
+      <div ref={sectionRef} className="relative left-1/2 w-screen -translate-x-1/2">
+        <div className="overflow-hidden border-y border-white/10 bg-neutral-900 shadow-[0_18px_40px_rgba(15,23,42,0.28)]">
           <div className="relative h-[260px] sm:h-[320px] lg:h-[360px]">
             <div className="absolute inset-0 grid grid-cols-1 sm:grid-cols-3">
               {displayItems.map((item, index) => (
@@ -168,22 +163,6 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
               }
             />
             <div className="tp-ambient-grid pointer-events-none absolute inset-0 opacity-20" />
-          </div>
-
-          <div className="flex flex-wrap gap-2 border-t border-white/10 bg-neutral-900/95 px-4 py-3">
-            {displayItems.map((item, index) => (
-              <span
-                key={`${item.label}-${index}`}
-                className={cn(
-                  "rounded-full border px-3 py-1 text-xs font-medium uppercase tracking-wide transition",
-                  index === activeIndex
-                    ? "border-blue-300/70 bg-blue-500/20 text-blue-100"
-                    : "border-white/25 text-white/70",
-                )}
-              >
-                {item.label}
-              </span>
-            ))}
           </div>
         </div>
       </div>
