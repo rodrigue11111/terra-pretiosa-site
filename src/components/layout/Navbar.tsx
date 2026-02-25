@@ -21,6 +21,9 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
   const [openMenu, setOpenMenu] = useState<"services" | "company" | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const [activeCategorySlug, setActiveCategorySlug] = useState<string>(
     megaMenuCategoryOrder[0],
   );
@@ -39,6 +42,26 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
     return `/${altLang}${pathname}`;
   }, [altLang, pathname]);
 
+  const companyLinks = useMemo(
+    () => [
+      { label: dictionary.nav.companyLinks.about, href: `/${lang}/company#about` },
+      {
+        label: dictionary.nav.companyLinks.megatrends,
+        href: `/${lang}/company#megatrends`,
+      },
+      {
+        label: dictionary.nav.companyLinks.sustainable,
+        href: `/${lang}/company#sustainable`,
+      },
+      {
+        label: dictionary.nav.companyLinks.ambitions,
+        href: `/${lang}/company#ambitions`,
+      },
+      { label: dictionary.nav.companyLinks.contact, href: `/${lang}/contact` },
+    ],
+    [dictionary.nav.companyLinks, lang],
+  );
+
   useOnClickOutside(
     rootRef,
     () => {
@@ -50,6 +73,9 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
   useEffect(() => {
     setOpenMenu(null);
     setSearchOpen(false);
+    setMobileMenuOpen(false);
+    setMobileServicesOpen(false);
+    setMobileCompanyOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -57,6 +83,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
       if (event.key === "Escape") {
         setOpenMenu(null);
         setSearchOpen(false);
+        setMobileMenuOpen(false);
       }
     };
 
@@ -67,12 +94,12 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
   }, []);
 
   useEffect(() => {
-    const shouldLockScroll = Boolean(openMenu) || searchOpen;
+    const shouldLockScroll = Boolean(openMenu) || searchOpen || mobileMenuOpen;
     document.body.style.overflow = shouldLockScroll ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [openMenu, searchOpen]);
+  }, [mobileMenuOpen, openMenu, searchOpen]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -142,7 +169,7 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             </Link>
           </nav>
 
-          <div className="ml-auto flex items-center gap-4 text-xs uppercase tracking-wide">
+          <div className="ml-auto hidden items-center gap-4 text-xs uppercase tracking-wide lg:flex">
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
@@ -154,35 +181,160 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
               {altLang.toUpperCase()}
             </Link>
           </div>
-        </div>
 
-        <div className="tp-container flex h-10 items-center justify-start gap-4 border-t border-blue-700/60 text-xs uppercase tracking-wide lg:hidden">
-          <button
-            type="button"
-            className="transition hover:text-blue-200"
-            onClick={() =>
-              setOpenMenu((prev) => (prev === "services" ? null : "services"))
-            }
-          >
-            {dictionary.nav.services}
-          </button>
-          <button
-            type="button"
-            className="transition hover:text-blue-200"
-            onClick={() =>
-              setOpenMenu((prev) => (prev === "company" ? null : "company"))
-            }
-          >
-            {dictionary.nav.company}
-          </button>
-          <Link href={`/${lang}/team`} className="transition hover:text-blue-200">
-            {dictionary.nav.team}
-          </Link>
-          <Link href={`/${lang}/contact`} className="transition hover:text-blue-200">
-            {dictionary.nav.contact}
-          </Link>
+          <div className="ml-auto flex items-center gap-2 lg:hidden">
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              className="rounded-full border border-white/30 px-3 py-1 text-xs font-medium uppercase tracking-wide transition hover:border-white/70 hover:bg-white/10"
+            >
+              {dictionary.nav.search}
+            </button>
+            <Link
+              href={switchHref}
+              className="rounded-full border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide transition hover:border-white/70 hover:bg-white/10"
+            >
+              {altLang.toUpperCase()}
+            </Link>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/40 transition hover:bg-white/10"
+            >
+              <span className="sr-only">Menu</span>
+              <span className="flex h-3.5 w-4.5 flex-col justify-between">
+                <span
+                  className={cn(
+                    "block h-0.5 w-full bg-white transition",
+                    mobileMenuOpen && "translate-y-1.5 rotate-45",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "block h-0.5 w-full bg-white transition",
+                    mobileMenuOpen && "opacity-0",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "block h-0.5 w-full bg-white transition",
+                    mobileMenuOpen && "-translate-y-1.5 -rotate-45",
+                  )}
+                />
+              </span>
+            </button>
+          </div>
         </div>
       </header>
+
+      {mobileMenuOpen ? (
+        <div
+          className="fixed inset-0 top-14 z-40 bg-black/45 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <aside
+            className="tp-enter-up ml-auto flex h-[calc(100vh-56px)] w-[min(92vw,380px)] flex-col overflow-y-auto border-l border-white/10 bg-neutral-900 px-5 py-5 text-white shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-4">
+              <p className="text-xs uppercase tracking-[0.18em] text-blue-200">
+                {dictionary.siteName}
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <button
+                type="button"
+                className="flex w-full items-center justify-between rounded-sm border border-white/10 px-3 py-2.5 text-left text-sm font-semibold uppercase tracking-wide transition hover:bg-white/10"
+                onClick={() => setMobileServicesOpen((prev) => !prev)}
+              >
+                {dictionary.nav.services}
+                <span
+                  className={cn(
+                    "inline-block transition",
+                    mobileServicesOpen ? "rotate-90" : "",
+                  )}
+                >
+                  {">"}
+                </span>
+              </button>
+
+              {mobileServicesOpen ? (
+                <div className="space-y-2 rounded-sm border border-white/10 bg-white/5 p-3">
+                  {dictionary.services.categories.map((category) => (
+                    <Link
+                      key={category.slug}
+                      href={`/${lang}/services/${category.slug}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block rounded-sm px-2 py-2 text-sm text-white/90 transition hover:bg-white/10 hover:text-white"
+                    >
+                      {category.title}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+
+              <button
+                type="button"
+                className="flex w-full items-center justify-between rounded-sm border border-white/10 px-3 py-2.5 text-left text-sm font-semibold uppercase tracking-wide transition hover:bg-white/10"
+                onClick={() => setMobileCompanyOpen((prev) => !prev)}
+              >
+                {dictionary.nav.company}
+                <span
+                  className={cn(
+                    "inline-block transition",
+                    mobileCompanyOpen ? "rotate-90" : "",
+                  )}
+                >
+                  {">"}
+                </span>
+              </button>
+
+              {mobileCompanyOpen ? (
+                <div className="space-y-2 rounded-sm border border-white/10 bg-white/5 p-3">
+                  {companyLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block rounded-sm px-2 py-2 text-sm text-white/90 transition hover:bg-white/10 hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+
+              <Link
+                href={`/${lang}/team`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block rounded-sm border border-white/10 px-3 py-2.5 text-sm font-semibold uppercase tracking-wide transition hover:bg-white/10"
+              >
+                {dictionary.nav.team}
+              </Link>
+              <Link
+                href={`/${lang}/contact`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block rounded-sm border border-white/10 px-3 py-2.5 text-sm font-semibold uppercase tracking-wide transition hover:bg-white/10"
+              >
+                {dictionary.nav.contact}
+              </Link>
+            </div>
+
+            <div className="mt-6 border-t border-white/10 pt-5">
+              <Link
+                href={`/${lang}/mission`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="tp-blue-button w-full"
+              >
+                {dictionary.nav.mission}
+              </Link>
+            </div>
+          </aside>
+        </div>
+      ) : null}
 
       <MegaMenu
         mode={openMenu}

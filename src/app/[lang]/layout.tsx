@@ -32,7 +32,7 @@ export default async function LangLayout({
   return (
     <div className="min-h-screen bg-white">
       <Navbar lang={lang} dictionary={dictionary} />
-      <main className="pt-24 lg:pt-14">{children}</main>
+      <main className="pt-14">{children}</main>
       <Footer lang={lang} dictionary={dictionary} />
     </div>
   );

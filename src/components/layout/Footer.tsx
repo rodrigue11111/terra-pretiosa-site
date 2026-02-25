@@ -7,11 +7,92 @@ interface FooterProps {
 }
 
 export function Footer({ lang, dictionary }: FooterProps) {
+  const mobileGroups = dictionary.footer.columns.flatMap((column) => column.groups);
+
   return (
     <footer className="relative overflow-hidden bg-neutral-900 text-white">
       <div className="tp-ambient-grid pointer-events-none absolute inset-0 opacity-20" />
-      <div className="tp-container relative z-10 py-14">
-        <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
+      <div className="tp-container relative z-10 py-10 md:py-14">
+        <div className="md:hidden">
+          <div className="mb-6 flex items-start justify-between gap-4">
+            <div>
+              <p className="tp-heading text-sm text-blue-200">{dictionary.siteName}</p>
+              <p className="mt-3 text-sm text-white/75">
+                438 N Frederick Ave
+                <br />
+                Gaithersburg, MD 20877
+              </p>
+            </div>
+            <Link
+              href={`/${lang}`}
+              className="inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-blue-800 text-sm font-semibold uppercase tracking-[0.16em] text-white ring-2 ring-white/20 transition hover:scale-105 hover:bg-blue-700"
+            >
+              TP
+            </Link>
+          </div>
+
+          <Link href={`/${lang}/mission`} className="tp-blue-button w-full">
+            {dictionary.nav.mission}
+          </Link>
+
+          <div className="mt-6 space-y-2">
+            {mobileGroups.map((group, index) => (
+              <details
+                key={`mobile-group-${group.title}-${index}`}
+                className="rounded-sm border border-white/15 bg-white/5"
+              >
+                <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-white">
+                  {group.title}
+                </summary>
+                <div className="space-y-2 px-4 pb-4">
+                  {group.links.map((link) => (
+                    <Link
+                      key={`mobile-${group.title}-${link.href}`}
+                      href={link.href}
+                      className="block text-sm text-white/80 underline-offset-2 transition hover:text-white hover:underline"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-7 border-t border-white/10 pt-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-200">
+              {dictionary.footer.quickLinksTitle}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-3 text-sm">
+              {dictionary.footer.quickLinks.map((link) => (
+                <Link
+                  key={`mobile-quick-${link.href}`}
+                  href={link.href}
+                  className="text-white/70 transition hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+            <div className="mt-4 flex gap-4 text-sm">
+              {dictionary.footer.socials.map((social) => (
+                <a
+                  key={`mobile-social-${social.label}`}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-white/70 transition hover:text-white"
+                  aria-label={social.label}
+                >
+                  {social.label}
+                </a>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-white/60">{dictionary.footer.legal}</p>
+          </div>
+        </div>
+
+        <div className="hidden gap-10 md:grid lg:grid-cols-[220px_1fr]">
           <div className="space-y-5">
             <Link
               href={`/${lang}`}
@@ -59,7 +140,7 @@ export function Footer({ lang, dictionary }: FooterProps) {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 border-t border-white/10 pt-6 text-xs text-white/60 lg:grid-cols-[1fr_auto_auto] lg:items-center">
+        <div className="mt-10 hidden gap-6 border-t border-white/10 pt-6 text-xs text-white/60 md:grid lg:grid-cols-[1fr_auto_auto] lg:items-center">
           <p>{dictionary.footer.legal}</p>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
