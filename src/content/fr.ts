@@ -268,45 +268,47 @@ const makeService = (
   title,
   excerpt,
   image,
-  paragraphs:
-    serviceDetails[slug]?.paragraphs ?? [
-      `Terra Pretiosa conçoit et pilote des prestations de ${title.toLowerCase()} adaptées aux contraintes techniques, humaines et réglementaires de chaque site.`,
-      "Nous sommes au cœur de l'action pour une Afrique plus prospère, avec des services intégrés, responsables et orientés résultats.",
-      "Notre approche combine expertise technique minérale, analyse macroéconomique, politiques industrielles ciblées et gouvernance ESG alignée sur les standards internationaux.",
-    ],
-  capabilities:
-    serviceDetails[slug]?.capabilities ?? [
-      "Diagnostic initial et cadrage opérationnel",
-      "Déploiement terrain avec indicateurs de performance",
-      "Traçabilité documentaire et restitution claire",
-      "Transfert de savoir-faire et renforcement de capacités",
-      "Conformité HSE/ESG et alignement réglementaire",
-    ],
+  paragraphs: [
+    ...(serviceDetails[slug]?.paragraphs ?? [
+      `Terra Pretiosa conçoit et pilote des prestations de ${title.toLowerCase()} alignées sur les contraintes géologiques, métallurgiques, HSE et réglementaires du projet.`,
+      "Notre méthodologie combine diagnostic terrain, modélisation technique, contrôle qualité et pilotage par indicateurs de performance afin de sécuriser les décisions d'investissement.",
+    ]),
+    "Chaque mission intègre un dispositif QA/QC, une gouvernance claire des données et un transfert opérationnel vers les équipes locales pour garantir la continuité après intervention.",
+  ],
+  capabilities: [
+    ...(serviceDetails[slug]?.capabilities ?? [
+      "Due diligence technique et cadrage opérationnel",
+      "Exécution terrain avec revues de performance périodiques",
+      "Traçabilité documentaire et reporting décisionnel",
+      "Conformité HSE, ESG et exigences réglementaires",
+    ]),
+    "Plan de transfert de compétences et de montée en autonomie",
+  ],
   highlights: [
     {
-      title: "Diagnostic ciblé",
-      text: "Nous identifions rapidement les points critiques pour prioriser les actions à plus fort impact.",
+      title: "Cadrage technico-economique",
+      text: "Nous consolidons données géologiques, contraintes opérationnelles et objectifs financiers pour définir une feuille de route réaliste.",
       ctaLabel: "Échanger avec un expert",
       ctaHref: "/fr/contact",
       image: "/placeholders/highlight-1.svg",
     },
     {
-      title: "Exécution maîtrisée",
-      text: "Le plan d'intervention est rythmé par des jalons clairs, un suivi qualité et des revues d'avancement.",
+      title: "Execution maitrisee",
+      text: "Le déploiement suit des jalons techniques, des contrôles QA/QC et des arbitrages rapides pour limiter les dérives de coût et de délai.",
       ctaLabel: "Voir nos services",
       ctaHref: "/fr/services",
       image: "/placeholders/highlight-2.svg",
     },
     {
-      title: "Mesure des résultats",
-      text: "Nous suivons des indicateurs techniques et économiques pour sécuriser la performance de la mission.",
+      title: "Performance mesuree",
+      text: "Nous suivons des KPI techniques, métallurgiques, environnementaux et économiques pour objectiver les gains de la mission.",
       ctaLabel: "Lancer une mission",
       ctaHref: "/fr/mission",
       image: "/placeholders/highlight-3.svg",
     },
     {
       title: "Transfert durable",
-      text: "Les équipes client disposent de méthodes, standards et supports directement utilisables après la mission.",
+      text: "Nous remettons procédures, standards de contrôle et supports de formation afin d'ancrer durablement les bonnes pratiques.",
       ctaLabel: "Nous contacter",
       ctaHref: "/fr/contact",
       image: "/placeholders/highlight-4.svg",
@@ -349,25 +351,25 @@ export const fr: Dictionary = {
   home: {
     hero: [
       {
-        title: "La civilisation humaine doit tout au sol et au sous-sol",
+        title: "Ingenierie miniere, metallurgie et gouvernance strategique",
         subtitle:
-          "Nous devons l'exploiter intelligemment pour notre prospérité et nous devons aussi le protéger pour les générations futures.",
-        ctaLabel: "Découvrir nos services",
+          "Terra Pretiosa accompagne les projets miniers depuis la caracterisation du minerai jusqu'a la performance industrielle, avec des exigences strictes de securite, conformite et creation de valeur.",
+        ctaLabel: "Decouvrir nos services",
         ctaHref: "/fr/services",
         image: "/placeholders/hero-1.svg",
       },
       {
-        title: "Gouvernance minérale et industrialisation durable",
+        title: "Securiser la chaine de valeur des ressources minerales",
         subtitle:
-          "Firme stratégique spécialisée en prestation de services et gouvernance des ressources minérales, résilience des chaînes d'approvisionnement et industrialisation durable en Afrique.",
+          "Nos equipes combinent geosciences, mineralurgie, operations et gouvernance publique pour renforcer la resilience des chaines d'approvisionnement strategiques en Afrique.",
         ctaLabel: "Voir notre approche",
         ctaHref: "/fr/company",
         image: "/placeholders/hero-2.svg",
       },
       {
-        title: "Partenaire des États, institutions et industriels",
+        title: "Transformer l'extraction en valeur industrielle locale",
         subtitle:
-          "Nous accompagnons la conception et la mise en œuvre de stratégies intégrées pour passer d'un modèle d'exportation brute à une économie de valeur ajoutée locale.",
+          "Nous structurons des missions mesurables pour les Etats, institutions et operateurs afin d'ameliorer la recuperation metallurgique, la gouvernance des revenus et la competitivite industrielle.",
         ctaLabel: "Lancer une mission",
         ctaHref: "/fr/mission",
         image: "/placeholders/hero-3.svg",
@@ -375,138 +377,139 @@ export const fr: Dictionary = {
     ],
     features: [
       {
-        title: "Une offre intégrée Mines & Ressources",
-        text: "Essais et analyses, opérations minières, formations, environnement et gouvernance: des services intégrés, durables et orientés résultats.",
-        ctaLabel: "Explorer les catégories",
+        title: "Une offre technique complete, du laboratoire au site",
+        text: "Essais mineralurgiques, QA/QC analytique, exhaure, forage, transport, environnement et gouvernance: un continuum de services coordonnes autour de la performance et de la maitrise des risques.",
+        ctaLabel: "Explorer les categories",
         ctaHref: "/fr/services",
         image: "/placeholders/feature-1.svg",
       },
       {
-        title: "Corridor d'activité africain",
-        text: "Nous intervenons au Burkina Faso, en RDC, en Guinée Conakry, au Sénégal, au Niger et au Mali, avec un siège social à Gaithersburg (Maryland, USA).",
-        ctaLabel: "Voir le corridor d'activité",
+        title: "Execution multi-pays dans les corridors miniers africains",
+        text: "Nos operations couvrent le Burkina Faso, la RDC, la Guinee Conakry, le Senegal, le Niger et le Mali, avec un pilotage international depuis Gaithersburg (Maryland, USA).",
+        ctaLabel: "Voir le corridor d'activite",
         ctaHref: "/fr/company#corridor",
         image: "/placeholders/feature-2.svg",
       },
       {
-        title: "Souveraineté industrielle et prospérité durable",
-        text: "Notre ambition est de transformer les ressources naturelles en leviers de développement économique, de souveraineté industrielle et de stabilité macroéconomique.",
-        ctaLabel: "Découvrir nos ambitions",
+        title: "Souverainete miniere, industrialisation et impact durable",
+        text: "Nous aidons les acteurs publics et prives a convertir les ressources minerales en capacites productives locales, en recettes fiabilisees et en emplois qualifies durables.",
+        ctaLabel: "Decouvrir nos ambitions",
         ctaHref: "/fr/company#ambitions",
         image: "/placeholders/feature-3.svg",
       },
     ],
     servicesSitemapTitle: "SERVICES",
     servicesSitemapSubtitle:
-      "Parcourez nos domaines d'intervention pour structurer, sécuriser et accélérer vos opérations minières et environnementales.",
-    serviceGridTitle: "Expertises clés",
+      "Explorez nos lignes de service pour structurer, fiabiliser et accelerer vos programmes miniers, metallurgiques et environnementaux.",
+    serviceGridTitle: "Expertises techniques cles",
     serviceGridIntro:
-      "Une sélection de services à haute valeur ajoutée couvrant la chaîne technique, opérationnelle et de gouvernance.",
+      "Une selection de prestations a haute valeur ajoutee couvrant la chaine geologique, operationnelle, environnementale et institutionnelle.",
     insights: {
-      title: "Insights",
-      featuredTitle: "Mégatendance: services miniers intégrés et durables",
+      title: "Analyses",
+      featuredTitle:
+        "Megatendance: excellence operationnelle et gouvernance des minerais critiques",
       featuredExcerpt:
-        "Face à la montée des exigences environnementales, de sécurité et de productivité, les États et compagnies minières africaines recherchent des partenaires capables de combiner technologie, réactivité locale et conformité environnementale.",
+        "Sous l'effet de la transition energetique et des exigences ESG, les acteurs miniers doivent simultanement augmenter la productivite, reduire l'empreinte environnementale et renforcer la tracabilite des flux.",
       featuredHref: "/fr/company#megatrends",
       items: [
         {
-          title: "Lutte contre la pauvreté rurale et le chômage des jeunes",
+          title: "Industrialisation locale et emplois techniques",
           excerpt:
-            "Nos interventions visent des impacts socioéconomiques locaux mesurables et durables.",
+            "Les politiques de contenu local et de transformation permettent de capter davantage de valeur sur les territoires miniers.",
           href: "/fr/company#megatrends",
         },
         {
-          title: "Qualité des eaux et conformité ESG",
+          title: "Qualite des eaux et conformite ESG",
           excerpt:
-            "Le suivi des effluents et des eaux minières devient un levier de performance durable.",
+            "Le monitoring hydrochimique des effluents et du drainage minier acide devient un indicateur critique de performance durable.",
           href: "/fr/services/environnement",
         },
         {
-          title: "Transmission du savoir-faire minier",
+          title: "Transfert de savoir-faire et excellence terrain",
           excerpt:
-            "Formations et renforcement de capacités pour opérateurs, institutions et administrations.",
+            "Les programmes de formation operationnelle reduisent la variabilite d'execution et accelerent l'autonomie des equipes.",
           href: "/fr/services/formations",
         },
         {
-          title: "Conseil en gouvernance des ressources minérales",
+          title: "Gouvernance des ressources minerales",
           excerpt:
-            "Appui stratégique aux États pour structurer les recettes minières, le contrôle de production et la traçabilité export.",
+            "Controle de production, audit des paiements et tracabilite export sont decisifs pour limiter les fuites de revenus.",
           href: "/fr/services/gouvernance-minerale",
         },
       ],
     },
     ctaBand: {
-      title: "Prêt à lancer une mission structurante ?",
+      title: "Pret a securiser votre prochaine mission miniere ?",
       missionCta: "Lancer une mission",
-      contactCta: "Contact us",
+      contactCta: "Nous ecrire",
     },
   },
   company: {
     pageTitle: "Entreprise",
-    introTitle: "À propos de Terra Pretiosa",
+    introTitle: "A propos de Terra Pretiosa",
     introBlocks: [
       {
-        title: "Notre conviction",
-        text: "La civilisation humaine doit tout au sol et au sous-sol. Nous devons l'exploiter intelligemment pour notre prospérité et le protéger pour les générations futures.",
+        title: "Mission",
+        text: "Terra Pretiosa est une firme de conseil et d'execution specialisee dans les services miniers, la performance metallurgique et la gouvernance des ressources minerales.",
       },
       {
         title: "Positionnement",
-        text: "Nous sommes une firme stratégique spécialisée en prestation de services et gouvernance des ressources minérales critiques, résilience des chaînes d'approvisionnement et industrialisation durable en Afrique.",
+        text: "Nous intervenons a l'interface entre technique, operations et politique publique pour aligner performance industrielle, conformite reglementaire et creation de valeur locale.",
       },
       {
-        title: "Ambition",
-        text: "Notre ambition est de renforcer la capacité des pays africains à transformer leurs ressources naturelles en leviers de développement économique, souveraineté industrielle et stabilité macroéconomique.",
+        title: "Champ d'action",
+        text: "Nos interventions couvrent la caracterisation du minerai, l'optimisation des procedes, l'exhaure, le forage, le transport minier, le suivi environnemental et la gouvernance des revenus extractifs.",
       },
       {
-        title: "Approche",
-        text: "Nous accompagnons gouvernements, institutions financières internationales et partenaires industriels avec une combinaison rigoureuse d'expertise technique minérale, analyse macroéconomique, politiques industrielles ciblées et gouvernance ESG alignée aux standards internationaux.",
+        title: "Approche d'ingenierie",
+        text: "Notre methode repose sur des donnees fiabilisees, des protocoles QA/QC stricts, des revues de performance periodiques et des plans de renforcement de capacites pour garantir des resultats auditables.",
       },
     ],
-    corridorTitle: "Corridor d'activité",
+    corridorTitle: "Corridor d'activite",
     corridorCountries: [
       "Burkina Faso",
       "RDC",
-      "Guinée Conakry",
-      "Sénégal",
+      "Guinee Conakry",
+      "Senegal",
       "Niger",
       "Mali",
     ],
-    hqTitle: "Siège",
+    hqTitle: "Siege",
     hqAddress: "438 N Frederick Ave, Gaithersburg, MD 20877",
-    megatrendsTitle: "Mégatendance",
+    megatrendsTitle: "Megatendance",
     megatrendsText:
-      "Face à la montée des exigences environnementales, de sécurité et de productivité, les États et compagnies minières africaines recherchent des partenaires capables d'offrir des services intégrés et durables: forage de précision, transport sécurisé, exhaure efficace des sites inondés et analyses rapides des minerais. Terra Pretiosa s'inscrit dans cette dynamique avec une forte réactivité locale et une conformité environnementale robuste.",
-    miningDevTitle: "Exploitation minière pour un développement efficace",
+      "La hausse de la demande en minerais critiques impose des standards plus eleves en securite, tracabilite, efficacite energetique et performance metallurgique. Les operateurs et les Etats doivent fiabiliser leurs donnees et leurs modeles de gouvernance pour rester competitifs.",
+    miningDevTitle: "Exploitation miniere pour un developpement efficace",
     miningDevText:
-      "Le concept clé est l'exploitation minière comme moteur de développement et de transformation continentale. Être acteur majeur des opérations minières permet de créer de la richesse, des emplois et de transmettre la connaissance et le savoir-faire.",
-    sustainableTitle: "Développement durable",
+      "Nous promouvons une exploitation miniere createur de valeur long terme: productivite technique, recuperation metallurgique, maitrise des risques environnementaux, recettes publiques securisees et integration industrielle locale.",
+    sustainableTitle: "Developpement durable",
     sustainableBullets: [
-      "Suivi environnemental périodique",
-      "Gestion des déchets et boues miniers",
-      "Réhabilitation des sites et revégétalisation",
-      "Formation locale et emploi des jeunes opérateurs",
-      "Fourniture d'équipements écoénergétiques",
-      "Exhaure et traitement des eaux",
-      "Attraction du capital-investissement et mobilisation du capital humain pour soutenir une croissance forte du secteur",
+      "Systemes de suivi environnemental periodique et auditables",
+      "Gestion integree des residus, boues et rejets miniers",
+      "Plans de rehabilitation progressive et revegetalisation des sites",
+      "Formation des operateurs locaux aux standards HSE et QA/QC",
+      "Optimisation de l'usage de l'energie et de l'eau industrielle",
+      "Conception de dispositifs d'exhaure et de traitement des eaux minieres",
+      "Mobilisation du capital humain et financier pour soutenir une croissance responsable du secteur",
     ],
     ambitionsTitle: "Nos ambitions",
     ambitionsBullets: [
-      "La souveraineté économique des États producteurs",
-      "La résilience des chaînes d'approvisionnement stratégiques",
-      "L'industrialisation durable de l'Afrique",
-      "L'accélération de la transition énergétique mondiale",
-      "La stabilisation géopolitique des corridors miniers critiques",
+      "Renforcer la souverainete economique des Etats producteurs",
+      "Fiabiliser les chaines d'approvisionnement en minerais strategiques",
+      "Accelerer l'industrialisation durable des pays africains",
+      "Elever les standards techniques et environnementaux du secteur",
+      "Contribuer a la stabilite geopolitique des corridors miniers critiques",
     ],
   },
   services: {
     landingTitle: "Services",
     landingIntro:
-      "Prestation de services en mines et ressources minérales: Terra Pretiosa intervient de l'analyse technique à la gouvernance stratégique avec une exécution orientée résultats, conformité et création de valeur locale.",
-    categoriesTitle: "Catégories de services",
+      "Terra Pretiosa fournit des services d'ingenierie miniere, de pilotage operationnel et de gouvernance des ressources minerales avec des livrables techniques, auditables et orientes decision.",
+    categoriesTitle: "Categories de services",
     sitemapTitle: "Plan des services",
     featuredTitle: "Insight en vedette",
     featuredText:
-      "Nous plaçons l'Afrique au cœur de l'action en combinant excellence technique, maîtrise des risques opérationnels et gouvernance responsable.",
+      "Nous combinons excellence technique, maitrise des risques operationnels et gouvernance responsable pour convertir les ressources minerales en croissance durable.",
     categories: [
       {
         slug: "essais-analyses",
@@ -764,52 +767,52 @@ export const fr: Dictionary = {
       subtitle:
         "Nous mobilisons les bonnes expertises pour accélérer l'impact opérationnel, institutionnel et durable.",
       primaryCta: "PARTENAIRE AVEC TERRA PRETIOSA",
-      secondaryCta: "Contact us",
+      secondaryCta: "Nous écrire",
     },
     relatedTitle: "Services associés",
     faqTitle: "Questions fréquentes",
   },
   team: {
-    pageTitle: "Notre équipe",
+    pageTitle: "Notre equipe",
     intro:
-      "Ici, nous mettrons les photos et mini CV de toute l'équipe qui travaille dans la firme.",
-    note: "Photos et mini CV en cours d'intégration.",
-    cvLabel: "Télécharger mini CV",
+      "Notre equipe pluridisciplinaire regroupe des profils en geologie, mineralurgie, operations minieres, environnement et gouvernance publique pour executer des missions complexes avec un haut niveau de rigueur technique.",
+    note: "Photos et mini CV complets seront ajoutes prochainement.",
+    cvLabel: "Telecharger mini CV",
     members: [
       {
-        name: "Amina Traoré",
-        role: "Associée - Gouvernance minière",
-        bio: "Spécialiste des politiques minières, recettes extractives et cadres institutionnels.",
+        name: "Amina Traore",
+        role: "Associee - Gouvernance miniere",
+        bio: "Specialiste des politiques minieres, de la fiscalite extractive et de la structuration institutionnelle des revenus miniers.",
         image: "/placeholders/team-1.svg",
       },
       {
         name: "Moussa Diallo",
-        role: "Directeur opérations",
-        bio: "Expert en pilotage de sites miniers, performance terrain et sécurité opérationnelle.",
+        role: "Directeur des operations",
+        bio: "Expert en planification de production, disponibilite des equipements et securisation des operations sur sites miniers.",
         image: "/placeholders/team-2.svg",
       },
       {
         name: "Clara Mvemba",
-        role: "Lead environnement",
-        bio: "Ingénieure en gestion des eaux minières, conformité ESG et réhabilitation de sites.",
+        role: "Lead environnement et eau",
+        bio: "Ingenieure specialisee en hydrochimie miniere, conformite ESG, rehabilitation de sites et gestion du drainage minier acide.",
         image: "/placeholders/team-3.svg",
       },
       {
-        name: "Jean Kaboré",
-        role: "Responsable analyses",
-        bio: "Expert en QA/QC, préparation d'échantillons et interprétation des données analytiques.",
+        name: "Jean Kabore",
+        role: "Responsable analyses et QA/QC",
+        bio: "Expert en protocoles de preparation d'echantillons, validation analytique et interpretation des donnees mineralogiques.",
         image: "/placeholders/team-4.svg",
       },
       {
         name: "Fatou Ndiaye",
-        role: "Consultante formation",
-        bio: "Conçoit des programmes Lean/SPC et d'amélioration continue pour équipes techniques.",
+        role: "Consultante performance et formation",
+        bio: "Concoit des parcours Lean, SPC et fiabilite pour augmenter la discipline d'execution et la productivite des equipes.",
         image: "/placeholders/team-5.svg",
       },
       {
         name: "David Okoro",
-        role: "Consultant stratégie",
-        bio: "Accompagne les stratégies d'intégration locale et de politique industrielle minérale.",
+        role: "Consultant strategie et industrialisation",
+        bio: "Accompagne les strategies de contenu local, l'analyse CAPEX et la structuration de chaines de valeur minerales competitives.",
         image: "/placeholders/team-6.svg",
       },
     ],
@@ -817,10 +820,10 @@ export const fr: Dictionary = {
   contact: {
     pageTitle: "Contact",
     intro:
-      "Discutons de vos enjeux techniques, environnementaux et de gouvernance des matieres premieres minerales. Vous pouvez egalement nous contacter via le formulaire ci-dessous.",
+      "Exposez vos enjeux techniques, operationnels ou institutionnels. Nos experts vous repondent avec un cadrage initial, des hypotheses de travail et une proposition d'intervention adaptee a votre contexte minier.",
     hqTitle: "Siege social",
     hqAddress: "438 N Frederick Ave, Gaithersburg, MD 20877",
-    corridorTitle: "Corridor d activite",
+    corridorTitle: "Corridor d'activite",
     corridorCountries: [
       "Burkina Faso",
       "RDC",
@@ -830,11 +833,11 @@ export const fr: Dictionary = {
       "Mali",
     ],
     phoneLabel: "Telephone",
-    phoneValue: "Numero personnel (temporaire, en attendant la ligne entreprise)",
+    phoneValue: "Numero en cours de finalisation",
     emailLabel: "Email",
-    emailValue: "Email de la compagnie a creer",
-    formTitle: "Contact us",
-    formSuccess: "Merci, votre message a bien ete envoye.",
+    emailValue: "Adresse de la compagnie en cours de creation",
+    formTitle: "Contactez-nous",
+    formSuccess: "Merci. Votre demande a bien ete transmise a notre equipe.",
     formFields: {
       firstName: "Prenom *",
       lastName: "Nom *",
@@ -845,7 +848,7 @@ export const fr: Dictionary = {
       serviceIndustry: "Secteur de service",
       enquiryType: "Type de demande *",
       message: "Message *",
-      consentText: "J accepte la",
+      consentText: "J'accepte la",
       privacyPolicyLabel: "Politique de confidentialite",
       submit: "SOUMETTRE",
     },
@@ -892,14 +895,14 @@ export const fr: Dictionary = {
   mission: {
     pageTitle: "Lancer une mission",
     intro:
-      "Partagez les objectifs et contraintes de votre mission. Notre équipe vous répondra avec une proposition adaptée au contexte de votre projet.",
-    formSuccess: "Merci. Votre demande de mission a été enregistrée.",
+      "Partagez vos objectifs techniques, vos contraintes de site, votre calendrier et vos attentes de performance. Nous preparons une proposition structuree avec perimetre, livrables et plan de deploiement.",
+    formSuccess: "Merci. Votre demande de mission a ete enregistree.",
     missionTypes: [
       "Essais & Analyses",
-      "Opérations minières",
+      "Operations minieres",
       "Formations",
       "Environnement",
-      "Gouvernance minérale",
+      "Gouvernance minerale",
     ],
     formFields: {
       name: "Nom complet",
@@ -907,9 +910,9 @@ export const fr: Dictionary = {
       organization: "Organisation",
       country: "Pays",
       missionType: "Type de mission",
-      timeline: "Calendrier souhaité",
+      timeline: "Calendrier souhaite",
       budget: "Budget (optionnel)",
-      details: "Détails de la mission",
+      details: "Details de la mission",
       submit: "Soumettre la demande",
     },
     formErrors: {
@@ -1087,6 +1090,3 @@ export const fr: Dictionary = {
     noResult: "Aucun résultat pour cette recherche.",
   },
 };
-
-
-

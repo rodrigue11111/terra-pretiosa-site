@@ -1,7 +1,6 @@
 import { fr } from "./fr";
 import type { Dictionary } from "./types";
 
-const todo = "(TODO: review EN wording)";
 
 const categoryTranslations: Record<string, { title: string; summary: string }> =
   {
@@ -36,104 +35,204 @@ const serviceTranslations: Record<string, { title: string; excerpt: string }> = 
   "fragmentation-des-roches": {
     title: "Rock Fragmentation",
     excerpt:
-      "Optimization of fragmentation parameters to improve mineral liberation and downstream performance.",
+      "Fragmentation and comminution design to improve mineral liberation and downstream process stability.",
   },
   "preparation-des-echantillons": {
     title: "Sample Preparation",
     excerpt:
-      "Standardized preparation chain to ensure representativeness and reduce analytical bias.",
+      "Standardized preparation workflows to ensure representativeness and analytical reliability.",
   },
   "analyses-mineralogiques-et-chimiques": {
     title: "Mineralogical and Chemical Analysis",
     excerpt:
-      "Targeted analysis to determine composition, variability, and value/penalty elements.",
+      "Advanced analytical characterization to define ore variability, value minerals, and penalty elements.",
   },
   "tests-mineralurgiques-et-metallurgiques": {
-    title: "Mineralurgical and Metallurgical Testing",
+    title: "Mineral Processing and Metallurgical Testing",
     excerpt:
-      "Test programs to optimize recovery, yield, and process selectivity.",
+      "Bench and pilot test programs to optimize recovery, selectivity, and process economics.",
   },
   "exhaure-des-mines": {
     title: "Mine Dewatering",
     excerpt:
-      "Sizing and supervision of dewatering solutions to protect continuity of operations.",
+      "Hydro-technical dewatering systems designed to protect production continuity and asset integrity.",
   },
   "forage-minier": {
     title: "Mining Drilling",
     excerpt:
-      "Technical and organizational support to improve drilling precision, pace, and safety.",
+      "Drilling support to improve precision, productivity, and safety in field operations.",
   },
   "transport-minier": {
     title: "Mining Transport",
     excerpt:
-      "Optimization of transport flows, from fleet planning to field logistics performance.",
+      "Operational transport management for ore, equipment, and critical consumables.",
   },
   "amelioration-continue": {
     title: "Continuous Improvement",
     excerpt:
-      "Lean, SPC, maintenance, and performance training to build a measurable improvement culture.",
+      "Lean and SPC-based performance programs to improve execution quality and operational discipline.",
   },
   "traitement-mineralurgique-et-des-eaux": {
     title: "Mineral Processing and Water Treatment",
     excerpt:
-      "Technical training on mineral processing and water quality management.",
+      "Technical training on process optimization, recovery control, and industrial water stewardship.",
   },
   "politique-environnementale": {
     title: "Environmental Policy",
     excerpt:
-      "Diagnosis, legal framework, ESG alignment, and implementation of fit-for-purpose policies.",
+      "Policy design aligned with legal obligations, ESG principles, and implementation controls.",
   },
   "evaluation-et-rehabilitation-des-sites": {
     title: "Site Assessment and Rehabilitation",
     excerpt:
-      "Risk-based assessment and phased rehabilitation planning for mining sites.",
+      "Risk-based diagnostics and rehabilitation planning for legacy and active mining sites.",
   },
   "controle-qualite-assurance-qualite": {
     title: "Quality Control / Quality Assurance",
     excerpt:
-      "QA/QC and chain-of-custody systems to improve data and flow reliability.",
+      "End-to-end QA/QC frameworks and chain-of-custody governance for defensible data.",
   },
   "surveillance-qualite-des-eaux": {
     title: "Water Quality Monitoring",
     excerpt:
-      "Monitoring programs for surface and groundwater quality with compliance reporting.",
+      "Surface and groundwater monitoring programs with compliance-focused reporting.",
   },
   "effluents-miniers-et-drainage-minier-acide": {
     title: "Mine Effluents and Acid Mine Drainage (AMD)",
     excerpt:
-      "Assessment and treatment of mining effluents, plus AMD prevention and mitigation.",
+      "Effluent diagnosis, treatment strategy, and AMD mitigation for environmental compliance.",
   },
   "strategie-recettes-minieres": {
     title: "Mining Revenue Strategy",
     excerpt:
-      "Design of strategies to mobilize, secure, and forecast mining revenues.",
+      "Strategic frameworks to improve revenue mobilization, transparency, and fiscal resilience.",
   },
   "structuration-organes-et-unites-revenus": {
     title: "Structuring Bodies and Revenue Units",
     excerpt:
-      "Institutional structuring for governance and revenue-focused mining functions.",
+      "Institutional structuring of public entities responsible for mining governance and revenues.",
   },
   "integration-locale-et-politique-industrielle": {
     title: "Local Integration and Industrial Policy",
     excerpt:
-      "Local-content mechanisms to strengthen transformation and national value addition.",
+      "Industrial policy and local-content advisory to strengthen domestic value addition.",
   },
   "controle-production-et-reporting": {
     title: "Production Control and Reporting",
     excerpt:
-      "Control and reporting frameworks for reliable production oversight.",
+      "Control architectures and reporting systems for reliable production oversight.",
   },
   "audit-flux-paiements-et-tracabilite-export": {
     title: "Payment Flow Audit and Export Traceability",
     excerpt:
-      "Audit of financial flows and export volumes to reduce revenue leakage.",
+      "Audit and traceability mechanisms to reduce revenue leakage in export value chains.",
   },
   "renforcement-capacites-administration": {
     title: "Public Administration Capacity Building",
     excerpt:
-      "Capacity-building programs for mining administrations and supervisory units.",
+      "Capability-building programs for ministries and supervisory entities in the mineral sector.",
   },
 };
+
+
+const categoryFaqTranslations: Record<
+  string,
+  { question: string; answer: string }[]
+> = {
+  "essais-analyses": [
+    {
+      question: "Why is standardized sample preparation critical?",
+      answer:
+        "Non-standard preparation introduces analytical bias and weakens process decisions. Standardized drying, crushing, splitting, and QA/QC controls ensure representative, defensible results.",
+    },
+    {
+      question: "What are typical deliverables for testing programs?",
+      answer:
+        "We provide structured technical reports, laboratory datasets, interpretation of mineralogical variability, and operational recommendations prioritized by impact.",
+    },
+  ],
+  "operations-minieres": [
+    {
+      question: "How do you approach dewatering in active mines?",
+      answer:
+        "We combine hydrogeological assessment, pump and piping sizing, preventive maintenance planning, and operational monitoring to reduce downtime and HSE exposure.",
+    },
+    {
+      question: "Do you support both open-pit and underground operations?",
+      answer:
+        "Yes. Our teams adapt drilling, dewatering, and transport support to geotechnical constraints, production targets, and safety requirements.",
+    },
+  ],
+  formations: [
+    {
+      question: "Which competencies are prioritized in your training programs?",
+      answer:
+        "Continuous improvement, process control (SPC), equipment reliability, operational discipline, and practical leadership for field supervisors and technical teams.",
+    },
+    {
+      question: "Do you include mineral processing and water modules?",
+      answer:
+        "Yes. Programs include mass balances, recovery optimization, effluent management, and practical control of water quality parameters.",
+    },
+  ],
+  environnement: [
+    {
+      question: "What does your environmental policy advisory cover?",
+      answer:
+        "We cover baseline diagnostics, legal and permitting frameworks, ESG alignment, enforcement mechanisms, and implementation roadmaps with measurable KPIs.",
+    },
+    {
+      question: "How do you secure analytical reliability in environmental monitoring?",
+      answer:
+        "Through calibrated instruments, certified standards, blanks and duplicates, documented chain-of-custody, and routine internal QA/QC audits.",
+    },
+  ],
+  "gouvernance-minerale": [
+    {
+      question: "What outputs do you deliver for mining governance assignments?",
+      answer:
+        "Revenue mobilization strategies, production control frameworks, export traceability protocols, and implementation plans for institutional units.",
+    },
+    {
+      question: "Do you support local industrial integration strategies?",
+      answer:
+        "Yes. We support local-content policies, transformation competitiveness studies, CAPEX screening, and industrial policy implementation pathways.",
+    },
+  ],
+};
+
+const teamMembersEn = [
+  {
+    name: "Amina Traore",
+    role: "Partner - Mining Governance",
+    bio: "Specialist in extractive fiscal policy, mining revenue architecture, and institutional reform for public sector performance.",
+  },
+  {
+    name: "Moussa Diallo",
+    role: "Director, Operations",
+    bio: "Mining operations expert focused on production planning, equipment availability, and disciplined field execution.",
+  },
+  {
+    name: "Clara Mvemba",
+    role: "Lead, Environment and Water",
+    bio: "Engineer specialized in mining hydrochemistry, ESG compliance, site rehabilitation, and AMD risk mitigation.",
+  },
+  {
+    name: "Jean Kabore",
+    role: "Head of Analytical QA/QC",
+    bio: "Expert in sample preparation protocols, analytical data validation, and mineralogical interpretation for process decisions.",
+  },
+  {
+    name: "Fatou Ndiaye",
+    role: "Performance and Training Consultant",
+    bio: "Designs Lean/SPC and reliability programs to increase execution consistency and operational productivity.",
+  },
+  {
+    name: "David Okoro",
+    role: "Strategy and Industrialization Consultant",
+    bio: "Advises on local-content strategy, CAPEX screening, and mineral value-chain development for durable competitiveness.",
+  },
+] as const;
 
 export const en: Dictionary = {
   lang: "en",
@@ -170,25 +269,25 @@ export const en: Dictionary = {
   home: {
     hero: [
       {
-        title: "Mineral governance and field performance",
+        title: "Mining engineering, metallurgy, and strategic governance",
         subtitle:
-          "Strategic firm specializing in mining services and mineral resource governance for sustainable industrialization in Africa.",
+          "Terra Pretiosa supports mining projects from ore characterization to industrial performance, with strict standards for safety, compliance, and value delivery.",
         ctaLabel: "Explore services",
         ctaHref: "/en/services",
         image: "/placeholders/hero-1.svg",
       },
       {
-        title: "Supply chain resilience for critical minerals",
+        title: "Securing critical mineral value chains",
         subtitle:
-          "We strengthen reliability, compliance, and transparency from mine operations to export.",
+          "Our teams combine geoscience, process engineering, operations, and governance advisory to strengthen resilient mineral supply systems in Africa.",
         ctaLabel: "See our approach",
         ctaHref: "/en/company",
         image: "/placeholders/hero-2.svg",
       },
       {
-        title: "Responsible mining operations",
+        title: "Converting extraction into local industrial value",
         subtitle:
-          "Our teams integrate technical, ESG, and performance requirements for measurable outcomes.",
+          "We design measurable assignments for governments, institutions, and operators to improve metallurgical recovery, revenue transparency, and industrial competitiveness.",
         ctaLabel: "Launch a mission",
         ctaHref: "/en/mission",
         image: "/placeholders/hero-3.svg",
@@ -196,22 +295,22 @@ export const en: Dictionary = {
     ],
     features: [
       {
-        title: "Integrated multidisciplinary expertise",
-        text: "Testing, analysis, mining operations, environment, and governance combined in one delivery model.",
+        title: "End-to-end technical delivery",
+        text: "Mineral testing, analytical QA/QC, dewatering, drilling, transport, environmental monitoring, and governance advisory delivered through one integrated operating model.",
         ctaLabel: "Browse categories",
         ctaHref: "/en/services",
         image: "/placeholders/feature-1.svg",
       },
       {
-        title: "African footprint, international standards",
-        text: "We operate across multiple mining jurisdictions with strong quality, compliance, and capacity-transfer discipline.",
+        title: "Execution across African mining corridors",
+        text: "We operate in Burkina Faso, DRC, Guinea Conakry, Senegal, Niger, and Mali, with international coordination from Gaithersburg, Maryland.",
         ctaLabel: "View activity corridor",
         ctaHref: "/en/company#corridor",
         image: "/placeholders/feature-2.svg",
       },
       {
-        title: "Sustainable impact and value creation",
-        text: "Our missions align industrial performance, mining revenues, and local economic development.",
+        title: "Industrial sovereignty and sustainable outcomes",
+        text: "Our assignments align technical productivity, secured public revenues, and local value-chain development to deliver durable impact.",
         ctaLabel: "Read our ambitions",
         ctaHref: "/en/company#ambitions",
         image: "/placeholders/feature-3.svg",
@@ -219,39 +318,46 @@ export const en: Dictionary = {
     ],
     servicesSitemapTitle: "SERVICES",
     servicesSitemapSubtitle:
-      "Explore our intervention areas to structure and accelerate mining programs.",
-    serviceGridTitle: "Core expertise",
+      "Explore our intervention lines to structure, de-risk, and accelerate mining, metallurgical, and environmental programs.",
+    serviceGridTitle: "Technical capabilities",
     serviceGridIntro:
-      "A selection of high-value services for demanding mining missions.",
+      "A focused selection of high-value services covering geology, operations, environment, and governance.",
     insights: {
       title: "Insights",
-      featuredTitle: "Megatrends: agile mineral governance",
+      featuredTitle:
+        "Megatrend: operational excellence and critical mineral governance",
       featuredExcerpt:
-        "Global energy transition raises pressure on critical minerals. Governments and operators must strengthen governance, traceability, and local integration.",
+        "As energy transition pressures increase, mining actors must simultaneously improve productivity, reduce environmental footprint, and strengthen traceability across financial and physical flows.",
       featuredHref: "/en/company#megatrends",
       items: [
         {
-          title: "Local industrialization and shared value",
+          title: "Local industrialization and skilled jobs",
           excerpt:
-            "Local integration turns mineral resources into long-term industrial growth.",
-          href: "/en/company#ambitions",
+            "Local-content and transformation policies are key levers to capture long-term value in mining regions.",
+          href: "/en/company#megatrends",
         },
         {
-          title: "Water quality and ESG compliance",
+          title: "Water quality control and ESG performance",
           excerpt:
-            "Effluent and water monitoring are now key drivers of sustainable performance.",
+            "Hydrochemical monitoring of effluents and AMD has become a core performance indicator for responsible operations.",
           href: "/en/services/environnement",
         },
         {
-          title: "Public capacity reinforcement",
+          title: "Capability transfer and field discipline",
           excerpt:
-            "Mining administrations need robust tools for revenue governance and traceability.",
+            "Targeted training programs reduce execution variability and improve operational autonomy of local teams.",
+          href: "/en/services/formations",
+        },
+        {
+          title: "Revenue governance and export traceability",
+          excerpt:
+            "Production controls, payment-flow audits, and export traceability are essential to limit revenue leakage.",
           href: "/en/services/gouvernance-minerale",
         },
       ],
     },
     ctaBand: {
-      title: "Ready to structure your next mission?",
+      title: "Ready to secure your next mining mission?",
       missionCta: "Launch a mission",
       contactCta: "Contact us",
     },
@@ -261,16 +367,20 @@ export const en: Dictionary = {
     introTitle: "About Terra Pretiosa",
     introBlocks: [
       {
+        title: "Mission",
+        text: "Terra Pretiosa is a consulting and execution firm specialized in mining services, metallurgical performance, and mineral resource governance.",
+      },
+      {
         title: "Positioning",
-        text: "Terra Pretiosa is a strategic firm focused on mining services and mineral resource governance.",
+        text: "We operate at the interface of engineering, operations, and public policy to align industrial performance, regulatory compliance, and local value creation.",
       },
       {
-        title: "Vision",
-        text: "We support resilient mineral supply chains and sustainable industrialization across Africa.",
+        title: "Scope",
+        text: "Our assignments cover ore characterization, process optimization, mine dewatering, drilling, transport logistics, environmental monitoring, and extractive revenue governance.",
       },
       {
-        title: "Method",
-        text: "Our interventions combine technical expertise, field execution, institutional support, and compliance standards.",
+        title: "Engineering approach",
+        text: "Our method relies on reliable data, strict QA/QC protocols, periodic performance reviews, and structured capability transfer to deliver auditable outcomes.",
       },
     ],
     corridorTitle: "Activity corridor",
@@ -286,70 +396,98 @@ export const en: Dictionary = {
     hqAddress: "438 N Frederick Ave, Gaithersburg, MD 20877",
     megatrendsTitle: "Megatrends",
     megatrendsText:
-      "Rising demand for critical mineral resources is reshaping governance, transparency, and operational standards. Terra Pretiosa helps public and private actors anticipate change and secure long-term value.",
+      "Rising demand for critical minerals requires higher standards in safety, traceability, energy efficiency, and metallurgical performance. Both operators and governments need stronger data governance and execution discipline to remain competitive.",
     miningDevTitle: "Mining for effective development",
     miningDevText:
-      "We promote results-driven mining: stronger productivity, secured public revenues, local industrialization, and global competitiveness.",
+      "We promote a mining model that creates long-term value through technical productivity, stronger recovery, controlled environmental risk, secured public revenues, and local industrial integration.",
     sustainableTitle: "Sustainable development",
     sustainableBullets: [
-      "Integrating ESG requirements into mine plans",
-      "Reducing environmental impacts and monitoring water quality",
-      "Risk-based site rehabilitation approaches",
-      "Transparent governance of flows and chain of custody",
+      "Auditable environmental monitoring systems",
+      "Integrated management of mine residues, slurries, and discharges",
+      "Progressive rehabilitation and revegetation plans",
+      "HSE and QA/QC capability building for local operators",
+      "Optimization of energy and industrial water use",
+      "Design of dewatering and mine-water treatment systems",
+      "Mobilization of human and financial capital for responsible sector growth",
     ],
     ambitionsTitle: "Our ambitions",
     ambitionsBullets: [
-      "Accelerate robust, measurable mineral governance",
-      "Strengthen resilience across mineral supply chains",
-      "Contribute to sustainable industrialization in Africa",
-      "Support capability growth for local teams",
+      "Strengthen economic sovereignty of producing countries",
+      "Improve resilience of strategic mineral supply chains",
+      "Accelerate sustainable industrialization in Africa",
+      "Raise technical and environmental standards across operations",
+      "Support geopolitical stability in critical mining corridors",
     ],
   },
   services: {
     landingTitle: "Services",
     landingIntro:
-      "Terra Pretiosa provides technical, operational, and governance expertise for mineral-sector challenges.",
+      "Terra Pretiosa delivers mining engineering, operational support, and mineral governance advisory with technically rigorous, auditable, decision-oriented outputs.",
     categoriesTitle: "Service categories",
     sitemapTitle: "Service sitemap",
     featuredTitle: "Featured insight",
     featuredText:
-      "Operational discipline and mining data governance have become major competitive advantages.",
+      "Technical discipline, data reliability, and governance quality are now primary competitive drivers in the mineral sector.",
     categories: fr.services.categories.map((category) => ({
       ...category,
-      title: categoryTranslations[category.slug]?.title ?? `${category.title} ${todo}`,
-      summary:
-        categoryTranslations[category.slug]?.summary ??
-        `${category.summary} ${todo}`,
+      title: categoryTranslations[category.slug]?.title ?? category.title,
+      summary: categoryTranslations[category.slug]?.summary ?? category.summary,
       services: category.services.map((service) => ({
         ...service,
-        title: serviceTranslations[service.slug]?.title ?? `${service.title} ${todo}`,
-        excerpt:
-          serviceTranslations[service.slug]?.excerpt ??
-          `${service.excerpt} ${todo}`,
+        title: serviceTranslations[service.slug]?.title ?? service.title,
+        excerpt: serviceTranslations[service.slug]?.excerpt ?? service.excerpt,
         paragraphs: [
-          `Terra Pretiosa designs and delivers ${(
+          `Our ${(
             serviceTranslations[service.slug]?.title ?? service.title
-          ).toLowerCase()} services tailored to technical, human, and regulatory constraints. ${todo}`,
-          `Our delivery model combines field expertise, quality assurance, and capability transfer to secure durable outcomes. ${todo}`,
+          ).toLowerCase()} engagements start with baseline diagnostics to identify key geological, operational, and compliance constraints.`,
+          "We then deploy an execution plan with QA/QC control points, performance indicators, and risk mitigation actions tailored to the project context.",
+          "Each assignment concludes with decision-ready reporting, implementation guidance, and capability transfer to strengthen long-term client autonomy.",
         ],
         capabilities: [
-          "Initial diagnosis and operational framing",
-          "Field deployment with performance indicators",
-          "Documented traceability and clear reporting",
-          "Capacity transfer to local teams",
+          "Integrated technical due diligence and operational scoping",
+          "Field execution with milestone-based performance reviews",
+          "QA/QC governance and traceable data workflows",
+          "HSE and ESG alignment with regulatory requirements",
+          "Decision-support reporting for operational and investment choices",
+          "Structured handover and capability transfer to local teams",
         ],
-        highlights: service.highlights.map((highlight) => ({
-          ...highlight,
-          title: `${highlight.title} ${todo}`,
-          text: `${highlight.text} ${todo}`,
-          ctaLabel: "Talk to an expert",
-          ctaHref: highlight.ctaHref.replace("/fr/", "/en/"),
+        highlights: [
+          {
+            title: "Technical baseline and risk mapping",
+            text: "We consolidate geological data, operating constraints, and financial objectives to prioritize high-impact actions.",
+            ctaLabel: "Talk to an expert",
+            ctaHref: "/en/contact",
+            image: "/placeholders/highlight-1.svg",
+          },
+          {
+            title: "Controlled execution model",
+            text: "Delivery follows clear milestones, QA/QC checkpoints, and rapid escalation paths to reduce schedule and cost drift.",
+            ctaLabel: "View services",
+            ctaHref: "/en/services",
+            image: "/placeholders/highlight-2.svg",
+          },
+          {
+            title: "Measured performance",
+            text: "Technical, metallurgical, environmental, and economic KPIs are monitored throughout the mission to validate outcomes.",
+            ctaLabel: "Launch a mission",
+            ctaHref: "/en/mission",
+            image: "/placeholders/highlight-3.svg",
+          },
+          {
+            title: "Sustainable capability transfer",
+            text: "We provide operating procedures, control standards, and training assets that remain actionable after project closure.",
+            ctaLabel: "Contact us",
+            ctaHref: "/en/contact",
+            image: "/placeholders/highlight-4.svg",
+          },
+        ],
+      })),
+      faq:
+        categoryFaqTranslations[category.slug] ??
+        category.faq?.map((item) => ({
+          question: item.question,
+          answer: item.answer,
         })),
-      })),
-      faq: category.faq?.map((item) => ({
-        question: `${item.question} ${todo}`,
-        answer: `${item.answer} ${todo}`,
-      })),
     })),
     ctaBand: {
       title: "Partner for your mining projects",
@@ -364,19 +502,18 @@ export const en: Dictionary = {
   team: {
     pageTitle: "Our team",
     intro:
-      "A multidisciplinary team supporting mining operations, environment, and mineral governance.",
-    note: "Photos and mini CVs will be added.",
+      "Our multidisciplinary team combines expertise in geology, mineral processing, mining operations, environmental systems, and public-sector governance.",
+    note: "Photos and complete mini CVs will be added soon.",
     cvLabel: "Download mini CV",
-    members: fr.team.members.map((member) => ({
+    members: teamMembersEn.map((member, index) => ({
       ...member,
-      role: `${member.role} ${todo}`,
-      bio: `${member.bio} ${todo}`,
+      image: fr.team.members[index]?.image ?? "/placeholders/team-1.svg",
     })),
   },
   contact: {
     pageTitle: "Contact",
     intro:
-      "Please complete the form below and our team will contact you shortly.",
+      "Share your technical, operational, or institutional challenge. Our team will respond with an initial framing note, working assumptions, and a tailored intervention pathway.",
     hqTitle: "Headquarters",
     hqAddress: "438 N Frederick Ave, Gaithersburg, MD 20877",
     corridorTitle: "Activity corridor",
@@ -389,11 +526,11 @@ export const en: Dictionary = {
       "Mali",
     ],
     phoneLabel: "Phone",
-    phoneValue: "To be defined",
+    phoneValue: "Corporate line in final setup",
     emailLabel: "Email",
-    emailValue: "To be created",
+    emailValue: "Corporate address in setup",
     formTitle: "Contact us",
-    formSuccess: "Thank you, your message has been sent.",
+    formSuccess: "Thank you. Your request has been sent to our team.",
     formFields: {
       firstName: "First Name *",
       lastName: "Last Name *",
@@ -451,7 +588,7 @@ export const en: Dictionary = {
   mission: {
     pageTitle: "Launch a mission",
     intro:
-      "Share your mission objectives and constraints. Our team will respond with a tailored plan.",
+      "Provide your technical objectives, site constraints, target timeline, and expected outcomes. We will prepare a structured proposal with scope, deliverables, and deployment plan.",
     formSuccess: "Thank you. Your mission request has been registered.",
     missionTypes: [
       "Testing & Analysis",
@@ -646,5 +783,3 @@ export const en: Dictionary = {
     noResult: "No result for this query.",
   },
 };
-
-
