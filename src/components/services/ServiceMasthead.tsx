@@ -51,16 +51,6 @@ export function ServiceMasthead({
             <Link href={`/${lang}/mission`} className="tp-blue-button tp-card-lift w-full">
               {dictionary.common.partnerCta}
             </Link>
-
-            <div className="tp-card-lift rounded-sm border border-neutral-300 bg-white p-5">
-              <p className="text-sm text-slate-700">{dictionary.common.contactUs}</p>
-              <Link
-                href={`/${lang}/contact`}
-                className="mt-3 inline-flex text-sm font-semibold uppercase tracking-wide text-blue-900 hover:text-blue-700"
-              >
-                {dictionary.nav.contact}
-              </Link>
-            </div>
           </aside>
         </Reveal>
       </div>

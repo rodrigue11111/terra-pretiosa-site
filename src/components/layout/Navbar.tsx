@@ -153,9 +153,6 @@ export function Navbar({ lang, dictionary }: NavbarProps) {
             <Link href={switchHref} className="transition hover:text-blue-200">
               {altLang.toUpperCase()}
             </Link>
-            <Link href="#" className="hidden transition hover:text-blue-200 sm:inline">
-              {dictionary.nav.login}
-            </Link>
           </div>
         </div>
 
