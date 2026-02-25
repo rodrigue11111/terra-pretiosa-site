@@ -24,19 +24,19 @@ function HighlightCard({
     <Reveal x={isRight ? 34 : -34} y={30} delayMs={index * 90}>
       <article
         className={cn(
-          "tp-card-lift grid gap-6 rounded-sm border border-neutral-200 bg-white p-6 lg:grid-cols-[180px_1fr]",
+          "tp-card-lift grid gap-7 rounded-sm border border-neutral-200 bg-white p-6 sm:p-7 lg:grid-cols-[250px_1fr] lg:items-center",
           isRight ? "lg:ml-12" : "lg:mr-12",
         )}
       >
-        <div className="relative mx-auto h-36 w-36">
-          <span className="absolute -inset-2 rounded-full border border-blue-900/10" />
-          <span className="absolute -left-2 top-2 h-8 w-8 rounded-full bg-blue-900/15 blur-sm [animation:tpFloat_6s_ease-in-out_infinite]" />
-          <div className="h-36 w-36 overflow-hidden rounded-full ring-4 ring-blue-900/10 transition duration-500 hover:scale-105">
+        <div className="relative mx-auto h-40 w-40 sm:h-44 sm:w-44 lg:h-52 lg:w-52">
+          <span className="absolute -inset-3 rounded-full border border-blue-900/10" />
+          <span className="absolute -left-3 top-3 h-10 w-10 rounded-full bg-blue-900/15 blur-sm [animation:tpFloat_6s_ease-in-out_infinite]" />
+          <div className="h-full w-full overflow-hidden rounded-full ring-4 ring-blue-900/10 transition duration-500 hover:scale-105">
             <Image
               src={item.image}
               alt={item.title}
-              width={144}
-              height={144}
+              width={208}
+              height={208}
               className="h-full w-full object-cover"
             />
           </div>
