@@ -19,7 +19,9 @@ const clamp = (value: number, min: number, max: number) =>
 
 export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef(0);
   const [progress, setProgress] = useState(0);
+  const [isNearViewport, setIsNearViewport] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   const displayItems = useMemo(() => {
@@ -60,7 +62,29 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
   }, []);
 
   useEffect(() => {
+    if (!sectionRef.current) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsNearViewport(entry.isIntersecting);
+      },
+      { rootMargin: "320px 0px 320px 0px" },
+    );
+
+    observer.observe(sectionRef.current);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
     if (reduceMotion || displayItems.length === 0) {
+      return;
+    }
+
+    if (!isNearViewport) {
       return;
     }
 
@@ -76,7 +100,12 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
       const start = viewportHeight * 0.9;
       const end = -rect.height * 0.2;
       const raw = (start - rect.top) / (start - end);
-      setProgress(clamp(raw, 0, 1));
+      const next = clamp(raw, 0, 1);
+
+      if (Math.abs(next - progressRef.current) > 0.006) {
+        progressRef.current = next;
+        setProgress(next);
+      }
     };
 
     const requestUpdate = () => {
@@ -100,7 +129,7 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
         window.cancelAnimationFrame(rafId);
       }
     };
-  }, [displayItems.length, reduceMotion]);
+  }, [displayItems.length, isNearViewport, reduceMotion]);
 
   if (displayItems.length === 0) {
     return null;
@@ -109,6 +138,10 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
   const spotlightX = 18 + progress * 62;
   const spotlightY = 50 + Math.sin(progress * Math.PI) * 7;
   const spotlightRadius = 24 + progress * 10;
+  const visualX = reduceMotion ? 48 : spotlightX;
+  const visualY = reduceMotion ? 50 : spotlightY;
+  const visualRadius = reduceMotion ? 32 : spotlightRadius;
+
   return (
     <section className={cn("py-6 sm:py-8", className)}>
       <div ref={sectionRef} className="relative left-1/2 w-screen -translate-x-1/2">
@@ -121,31 +154,7 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
                     src={item.image}
                     alt={item.label}
                     fill
-                    className="object-cover grayscale"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-neutral-900/55" />
-                </div>
-              ))}
-            </div>
-
-            <div
-              className={cn("absolute inset-0 grid grid-cols-1 sm:grid-cols-3")}
-              style={
-                reduceMotion
-                  ? undefined
-                  : {
-                      clipPath: `circle(${spotlightRadius}% at ${spotlightX}% ${spotlightY}%)`,
-                    }
-              }
-            >
-              {displayItems.map((item, index) => (
-                <div key={`${item.label}-color-${index}`} className="relative">
-                  <Image
-                    src={item.image}
-                    alt={item.label}
-                    fill
-                    className="object-cover transition duration-500"
+                    className="object-cover"
                     sizes="(max-width: 640px) 100vw, 33vw"
                   />
                 </div>
@@ -155,12 +164,17 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
             <div
               className="pointer-events-none absolute inset-0"
               style={
-                reduceMotion
-                  ? undefined
-                  : {
-                      background: `radial-gradient(circle at ${spotlightX}% ${spotlightY}%, rgba(125,211,252,0.35), rgba(59,130,246,0.12) 24%, rgba(0,0,0,0) 44%)`,
-                    }
+                {
+                  background: `radial-gradient(circle ${visualRadius}% at ${visualX}% ${visualY}%, rgba(12,18,27,0.08) 0%, rgba(12,18,27,0.2) 34%, rgba(12,18,27,0.58) 56%, rgba(12,18,27,0.74) 100%)`,
+                }
               }
+            />
+
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background: `radial-gradient(circle at ${visualX}% ${visualY}%, rgba(125,211,252,0.28), rgba(59,130,246,0.1) 22%, rgba(0,0,0,0) 44%)`,
+              }}
             />
             <div className="tp-ambient-grid pointer-events-none absolute inset-0 opacity-20" />
           </div>
