@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ServicesSitemapHero } from "@/components/home/ServicesSitemapHero";
 import { Reveal } from "@/components/motion/Reveal";
+import { ScrollSpotlightHero } from "@/components/services/ScrollSpotlightHero";
 import { getDictionary, isSupportedLang } from "@/content";
 
 interface ServicesPageProps {
@@ -17,6 +18,10 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
   }
 
   const dictionary = getDictionary(lang);
+  const spotlightItems = dictionary.services.categories.slice(0, 3).map((category) => ({
+    image: category.image,
+    label: category.title,
+  }));
 
   return (
     <>
@@ -46,6 +51,8 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
           </Reveal>
         </div>
       </section>
+
+      <ScrollSpotlightHero items={spotlightItems} />
 
       <section className="py-14">
         <div className="tp-container">

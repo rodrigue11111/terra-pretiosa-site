@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
+import { ScrollSpotlightHero } from "@/components/services/ScrollSpotlightHero";
 import { getCategoryBySlug, getDictionary, isSupportedLang } from "@/content";
 
 interface ServiceCategoryPageProps {
@@ -23,6 +24,11 @@ export default async function ServiceCategoryPage({
   if (!categoryData) {
     notFound();
   }
+
+  const spotlightItems = categoryData.services.slice(0, 3).map((service) => ({
+    image: service.image,
+    label: service.title,
+  }));
 
   return (
     <>
@@ -50,6 +56,8 @@ export default async function ServiceCategoryPage({
           </Reveal>
         </div>
       </section>
+
+      <ScrollSpotlightHero items={spotlightItems} />
 
       <section className="py-14">
         <div className="tp-container">

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
 import { AnimatedHighlights } from "@/components/services/AnimatedHighlights";
 import { RelatedServices } from "@/components/services/RelatedServices";
+import { ScrollSpotlightHero } from "@/components/services/ScrollSpotlightHero";
 import { ServiceIntro } from "@/components/services/ServiceIntro";
 import { ServiceMasthead } from "@/components/services/ServiceMasthead";
 import {
@@ -36,6 +37,14 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
     notFound();
   }
 
+  const spotlightItems = [
+    { image: service.image, label: service.title },
+    ...service.highlights.slice(0, 2).map((highlight) => ({
+      image: highlight.image,
+      label: highlight.title,
+    })),
+  ];
+
   return (
     <>
       <ServiceMasthead
@@ -44,6 +53,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
         categoryTitle={categoryData.title}
         serviceTitle={service.title}
       />
+      <ScrollSpotlightHero items={spotlightItems} />
       <ServiceIntro service={service} />
       <AnimatedHighlights lang={lang} items={service.highlights} />
       <RelatedServices
