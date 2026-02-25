@@ -1,5 +1,256 @@
 import type { Dictionary, ServiceItem } from "./types";
 
+const serviceDetails: Record<
+  string,
+  { paragraphs: string[]; capabilities: string[] }
+> = {
+  "fragmentation-des-roches": {
+    paragraphs: [
+      "La fragmentation et le broyage sont des étapes cruciales en minéralurgie et métallurgie. Elles conditionnent la qualité de l'échantillonnage, la précision des analyses et l'efficacité du traitement.",
+      "Une fragmentation adaptée permet une distribution homogène des particules. Un broyage contrôlé évite la sur-pulvérisation et limite les pertes métalliques.",
+    ],
+    capabilities: [
+      "Contrôle granulométrique pour des échantillons représentatifs",
+      "Optimisation du rendement et de la récupération",
+      "Réduction des coûts d'exploitation",
+      "Décisions techniques et économiques plus fiables",
+      "Contribution à la conception des usines de traitement",
+    ],
+  },
+  "preparation-des-echantillons": {
+    paragraphs: [
+      "Une bonne préparation des échantillons est une étape critique en métallurgie extractive. Elle vise un échantillon homogène et représentatif pour les tests chimiques et minéralogiques.",
+      "Une préparation inadéquate peut fausser les résultats et impacter les choix de procédés, la conception des circuits et l'évaluation économique du projet.",
+    ],
+    capabilities: [
+      "Inventaire et sélection rigoureuse selon les normes",
+      "Séchage maximal des échantillons",
+      "Fragmentation et broyage contrôlés",
+      "Mélange et fractionnement stricts",
+    ],
+  },
+  "analyses-mineralogiques-et-chimiques": {
+    paragraphs: [
+      "Les analyses minéralogiques et chimiques sont déterminantes pour la compréhension des gisements, la performance métallurgique et la conformité environnementale.",
+      "Nous mobilisons XRD, FRX, SEM et QEMSCAN pour une lecture détaillée des associations minérales, de la granulométrie et de la composition chimique.",
+    ],
+    capabilities: [
+      "Analyses XRD, FRX, SEM et QEMSCAN",
+      "Intégration des données dans la conception métallurgique",
+      "Réduction des délais d'acheminement des échantillons",
+      "Reprise rapide des tests et meilleure coordination laboratoire-terrain",
+    ],
+  },
+  "tests-mineralurgiques-et-metallurgiques": {
+    paragraphs: [
+      "Nous proposons une gamme complète d'essais pour évaluer le comportement du minerai avant et pendant l'exploitation.",
+      "Ces tests orientent les choix de procédés et d'investissement en optimisant récupération, rendements et coûts.",
+    ],
+    capabilities: [
+      "Analyses granulométriques",
+      "Composition minéralogique et chimique",
+      "Tests de flottation",
+      "Essais gravimétriques",
+      "Essais de lixiviation (cyanuration, acide)",
+    ],
+  },
+  "exhaure-des-mines": {
+    paragraphs: [
+      "L'exhaure est essentielle pour la sécurité, la continuité de production et la protection des équipements en mine.",
+      "Nous accompagnons la planification et l'exécution des opérations de pompage avec des solutions adaptées aux conditions de site.",
+    ],
+    capabilities: [
+      "Pompage d'eau et maîtrise des infiltrations",
+      "Équipements robustes: pompes submersibles et motopompes",
+      "Maintenance préventive et réduction des risques HSE",
+      "Optimisation des coûts d'exploitation",
+    ],
+  },
+  "forage-minier": {
+    paragraphs: [
+      "Nous réalisons des forages d'exploitation, de production et de drainage en mines à ciel ouvert et souterraines.",
+      "Nos équipes interviennent avec une approche adaptée aux exigences de profondeur, diamètre et précision.",
+    ],
+    capabilities: [
+      "Forage de production",
+      "Forage de drainage",
+      "Rendement élevé et sécurité optimale",
+      "Exécution adaptée aux contraintes géotechniques",
+    ],
+  },
+  "transport-minier": {
+    paragraphs: [
+      "Nous assurons un transport minier fiable des minerais, équipements et consommables industriels.",
+      "Notre logistique relie sites d'exploitation, ports et usines de traitement avec un suivi opérationnel continu.",
+    ],
+    capabilities: [
+      "Flotte adaptée: bennes, plateaux, citernes",
+      "Chauffeurs formés aux standards HSE",
+      "Traçabilité et coordination en temps réel",
+      "Respect des délais et contraintes opérationnelles",
+    ],
+  },
+  "amelioration-continue": {
+    paragraphs: [
+      "Nos formations en amélioration continue renforcent les compétences des équipes minières et métallurgiques.",
+      "Les modules combinent théorie, ateliers pratiques et cas réels pour installer une culture de performance durable.",
+    ],
+    capabilities: [
+      "Lean Mining & optimisation des processus",
+      "Contrôle statistique des procédés (SPC)",
+      "Maintenance préventive & fiabilité des équipements",
+      "Gestion des coûts & performance opérationnelle",
+      "Culture de performance et leadership terrain",
+    ],
+  },
+  "traitement-mineralurgique-et-des-eaux": {
+    paragraphs: [
+      "Cette formation couvre le traitement des minerais et la gestion des eaux industrielles dans les opérations minières.",
+      "Elle vise à améliorer la performance métallurgique, réduire les pertes et garantir la conformité environnementale.",
+    ],
+    capabilities: [
+      "Optimisation concassage, broyage, classification",
+      "Flottation, lixiviation, récupération métallurgique",
+      "Bilans massiques et contrôle des performances",
+      "Traitement des effluents et gestion de l'AMD",
+      "Recyclage et gestion durable de l'eau",
+    ],
+  },
+  "politique-environnementale": {
+    paragraphs: [
+      "Nous aidons les pays et entreprises à développer ou améliorer leur politique environnementale en amont des projets et des plans de réhabilitation.",
+      "L'approche intègre gouvernance ESG, cadre juridique, contrôle et mécanismes financiers de garantie environnementale.",
+    ],
+    capabilities: [
+      "Diagnostic environnemental sectoriel",
+      "Analyse du cadre juridique",
+      "Consultation des parties prenantes",
+      "Définition des standards environnementaux",
+      "Mécanismes de contrôle et plan de mise en œuvre",
+    ],
+  },
+  "evaluation-et-rehabilitation-des-sites": {
+    paragraphs: [
+      "Nous réalisons des audits complets des sols, eaux, résidus et infrastructures pour cartographier les risques des sites miniers.",
+      "Nous concevons des plans de réhabilitation technique et financière intégrant stabilisation et restauration écologique.",
+    ],
+    capabilities: [
+      "Diagnostic des impacts environnementaux, géotechniques et sociaux",
+      "Cartographie des risques et passifs miniers",
+      "Estimation des coûts de restauration",
+      "Plans de réhabilitation progressifs",
+    ],
+  },
+  "controle-qualite-assurance-qualite": {
+    paragraphs: [
+      "Nous déployons un système QA/QC rigoureux pour garantir fiabilité, précision et traçabilité des analyses minières et environnementales.",
+      "Nos procédures sont alignées sur les standards internationaux pour produire des résultats défendables.",
+    ],
+    capabilities: [
+      "Étalonnage et vérification des instruments",
+      "Blancs, duplicatas et standards certifiés",
+      "Chaîne de custody documentée",
+      "Audits internes et validation des résultats",
+    ],
+  },
+  "surveillance-qualite-des-eaux": {
+    paragraphs: [
+      "Nous analysons et surveillons la qualité des eaux dans les zones reculées, nouveaux forages et environnements miniers.",
+      "Le dispositif est adapté à l'usage: captage, eau potable, eaux usées, eaux souterraines et rejets.",
+    ],
+    capabilities: [
+      "Échantillonnage multi-usages des eaux",
+      "Analyse d'eau potable et eaux minières",
+      "Suivi périodique et reporting de conformité",
+    ],
+  },
+  "effluents-miniers-et-drainage-minier-acide": {
+    paragraphs: [
+      "Nous analysons les effluents et lixiviats miniers pour assurer la conformité réglementaire des rejets.",
+      "Nos solutions couvrent le traitement des effluents, la gestion du drainage minier acide (AMD) et le monitoring continu.",
+    ],
+    capabilities: [
+      "Analyse physico-chimique (pH, métaux lourds, sulfates, cyanures, arsenic)",
+      "Diagnostic des sources de pollution",
+      "Conception de systèmes de traitement adaptés",
+      "Gestion des bassins, eaux pluviales et recyclage d'eau",
+    ],
+  },
+  "strategie-recettes-minieres": {
+    paragraphs: [
+      "Nous proposons des stratégies d'amélioration des recettes minières pour les États producteurs.",
+      "Les recommandations visent la sécurisation des flux, la transparence et l'efficacité budgétaire.",
+    ],
+    capabilities: [
+      "Stratégie de mobilisation des recettes minières",
+      "Outils d'évaluation des projets",
+      "Manuels de procédures",
+      "Assistance technique continue",
+    ],
+  },
+  "structuration-organes-et-unites-revenus": {
+    paragraphs: [
+      "Nous accompagnons la structuration des organes et instances en charge des ressources minières et des unités de revenus.",
+      "L'objectif est d'améliorer gouvernance, coordination institutionnelle et performance administrative.",
+    ],
+    capabilities: [
+      "Structuration des instances et organes",
+      "Formation des cadres ministériels",
+      "Création d'unités spécialisées revenus miniers",
+      "Assistance institutionnelle continue",
+    ],
+  },
+  "integration-locale-et-politique-industrielle": {
+    paragraphs: [
+      "Nous conseillons l'intégration locale et la politique industrielle pour accroître la valeur ajoutée nationale.",
+      "Les études couvrent compétitivité, raffineries, emploi, fiscalité industrielle et zones minières intégrées.",
+    ],
+    capabilities: [
+      "Étude de compétitivité de la transformation locale",
+      "Analyse CAPEX des raffineries",
+      "Évaluation de l'impact emploi",
+      "Plans d'incitations fiscales industrielles",
+      "Structuration de zones industrielles minières",
+    ],
+  },
+  "controle-production-et-reporting": {
+    paragraphs: [
+      "Nous mettons en place des moyens de contrôle de production et des dispositifs de reporting robustes.",
+      "Ces systèmes améliorent la qualité de la donnée, la supervision des volumes et la transparence des flux miniers.",
+    ],
+    capabilities: [
+      "Contrôle de production",
+      "Systèmes de reporting",
+      "Traçabilité des volumes exportés",
+      "Alignement avec standards internationaux",
+    ],
+  },
+  "audit-flux-paiements-et-tracabilite-export": {
+    paragraphs: [
+      "Nous auditons les flux de paiement miniers et les volumes exportés pour réduire les pertes de revenus.",
+      "La traçabilité des flux financiers et physiques est structurée pour soutenir la conformité et la gouvernance.",
+    ],
+    capabilities: [
+      "Audit des flux de paiement miniers",
+      "Traçabilité des volumes exportés",
+      "Vérification des écarts et risques",
+      "Recommandations de sécurisation des recettes",
+    ],
+  },
+  "renforcement-capacites-administration": {
+    paragraphs: [
+      "Nous renforçons les capacités des administrations minières via formation, outils et accompagnement opérationnel.",
+      "L'objectif est d'ancrer des capacités durables de contrôle, pilotage et négociation stratégique.",
+    ],
+    capabilities: [
+      "Formation des cadres ministériels",
+      "Outils d'évaluation des projets",
+      "Appui méthodologique et procédural",
+      "Assistance technique continue",
+    ],
+  },
+};
+
 const makeService = (
   slug: string,
   title: string,
@@ -10,16 +261,20 @@ const makeService = (
   title,
   excerpt,
   image,
-  paragraphs: [
-    `Terra Pretiosa conçoit et pilote des prestations de ${title.toLowerCase()} adaptées aux contraintes techniques, humaines et réglementaires de chaque site.`,
-    "Notre approche combine expertise terrain, assurance qualité et transfert de compétences pour sécuriser des décisions rapides et durables.",
-  ],
-  capabilities: [
-    "Diagnostic initial et cadrage opérationnel",
-    "Déploiement terrain avec indicateurs de performance",
-    "Traçabilité documentaire et restitution claire",
-    "Montée en compétences des équipes locales",
-  ],
+  paragraphs:
+    serviceDetails[slug]?.paragraphs ?? [
+      `Terra Pretiosa conçoit et pilote des prestations de ${title.toLowerCase()} adaptées aux contraintes techniques, humaines et réglementaires de chaque site.`,
+      "Nous sommes au cœur de l'action pour une Afrique plus prospère, avec des services intégrés, responsables et orientés résultats.",
+      "Notre approche combine expertise technique minérale, analyse macroéconomique, politiques industrielles ciblées et gouvernance ESG alignée sur les standards internationaux.",
+    ],
+  capabilities:
+    serviceDetails[slug]?.capabilities ?? [
+      "Diagnostic initial et cadrage opérationnel",
+      "Déploiement terrain avec indicateurs de performance",
+      "Traçabilité documentaire et restitution claire",
+      "Transfert de savoir-faire et renforcement de capacités",
+      "Conformité HSE/ESG et alignement réglementaire",
+    ],
   highlights: [
     {
       title: "Diagnostic ciblé",
@@ -87,25 +342,25 @@ export const fr: Dictionary = {
   home: {
     hero: [
       {
-        title: "Gouvernance minérale et performance terrain",
+        title: "La civilisation humaine doit tout au sol et au sous-sol",
         subtitle:
-          "Cabinet stratégique spécialisé en services miniers et gouvernance des ressources minérales pour une industrialisation durable en Afrique.",
+          "Nous devons l'exploiter intelligemment pour notre prospérité et nous devons aussi le protéger pour les générations futures.",
         ctaLabel: "Découvrir nos services",
         ctaHref: "/fr/services",
         image: "/placeholders/hero-1.svg",
       },
       {
-        title: "Résilience de la chaîne d'approvisionnement",
+        title: "Gouvernance minérale et industrialisation durable",
         subtitle:
-          "Nous renforçons la fiabilité des flux, la conformité et la transparence de la mine à l'exportation.",
+          "Firme stratégique spécialisée en prestation de services et gouvernance des ressources minérales, résilience des chaînes d'approvisionnement et industrialisation durable en Afrique.",
         ctaLabel: "Voir notre approche",
         ctaHref: "/fr/company",
         image: "/placeholders/hero-2.svg",
       },
       {
-        title: "Opérations minières responsables",
+        title: "Partenaire des États, institutions et industriels",
         subtitle:
-          "Nos équipes intègrent les exigences techniques, ESG et de performance pour des résultats mesurables.",
+          "Nous accompagnons la conception et la mise en œuvre de stratégies intégrées pour passer d'un modèle d'exportation brute à une économie de valeur ajoutée locale.",
         ctaLabel: "Lancer une mission",
         ctaHref: "/fr/mission",
         image: "/placeholders/hero-3.svg",
@@ -113,22 +368,22 @@ export const fr: Dictionary = {
     ],
     features: [
       {
-        title: "Expertise multidisciplinaire",
-        text: "Essais, analyses, opérations minières, environnement et gouvernance: une offre intégrée sur toute la chaîne de valeur.",
+        title: "Une offre intégrée Mines & Ressources",
+        text: "Essais et analyses, opérations minières, formations, environnement et gouvernance: des services intégrés, durables et orientés résultats.",
         ctaLabel: "Explorer les catégories",
         ctaHref: "/fr/services",
         image: "/placeholders/feature-1.svg",
       },
       {
-        title: "Ancrage africain et standard international",
-        text: "Nous opérons dans plusieurs juridictions minières avec une exigence de qualité, de conformité et de transfert de compétences.",
+        title: "Corridor d'activité africain",
+        text: "Nous intervenons au Burkina Faso, en RDC, en Guinée Conakry, au Sénégal, au Niger et au Mali, avec un siège social à Gaithersburg (Maryland, USA).",
         ctaLabel: "Voir le corridor d'activité",
         ctaHref: "/fr/company#corridor",
         image: "/placeholders/feature-2.svg",
       },
       {
-        title: "Impact durable et création de valeur",
-        text: "Nos missions alignent performance industrielle, recettes minières et bénéfices économiques locaux.",
+        title: "Souveraineté industrielle et prospérité durable",
+        text: "Notre ambition est de transformer les ressources naturelles en leviers de développement économique, de souveraineté industrielle et de stabilité macroéconomique.",
         ctaLabel: "Découvrir nos ambitions",
         ctaHref: "/fr/company#ambitions",
         image: "/placeholders/feature-3.svg",
@@ -136,22 +391,22 @@ export const fr: Dictionary = {
     ],
     servicesSitemapTitle: "SERVICES",
     servicesSitemapSubtitle:
-      "Parcourez nos domaines d'intervention pour structurer et accélérer vos opérations.",
+      "Parcourez nos domaines d'intervention pour structurer, sécuriser et accélérer vos opérations minières et environnementales.",
     serviceGridTitle: "Expertises clés",
     serviceGridIntro:
-      "Une sélection de services à haute valeur ajoutée pour des missions minières exigeantes.",
+      "Une sélection de services à haute valeur ajoutée couvrant la chaîne technique, opérationnelle et de gouvernance.",
     insights: {
       title: "Insights",
-      featuredTitle: "Mégatendance: vers une gouvernance minérale agile",
+      featuredTitle: "Mégatendance: services miniers intégrés et durables",
       featuredExcerpt:
-        "La transition énergétique mondiale augmente la pression sur les matières premières critiques. Les États et opérateurs doivent renforcer la gouvernance, la traçabilité et l'intégration locale.",
+        "Face à la montée des exigences environnementales, de sécurité et de productivité, les États et compagnies minières africaines recherchent des partenaires capables de combiner technologie, réactivité locale et conformité environnementale.",
       featuredHref: "/fr/company#megatrends",
       items: [
         {
-          title: "Industrialisation locale et valeur partagée",
+          title: "Lutte contre la pauvreté rurale et le chômage des jeunes",
           excerpt:
-            "L'intégration locale transforme les ressources en moteur de développement industriel.",
-          href: "/fr/company#ambitions",
+            "Nos interventions visent des impacts socioéconomiques locaux mesurables et durables.",
+          href: "/fr/company#megatrends",
         },
         {
           title: "Qualité des eaux et conformité ESG",
@@ -160,15 +415,15 @@ export const fr: Dictionary = {
           href: "/fr/services/environnement",
         },
         {
-          title: "Renforcement des capacités publiques",
+          title: "Transmission du savoir-faire minier",
           excerpt:
-            "Les administrations minières ont besoin d'outils robustes pour piloter recettes et traçabilité.",
-          href: "/fr/services/gouvernance-minerale",
+            "Formations et renforcement de capacités pour opérateurs, institutions et administrations.",
+          href: "/fr/services/formations",
         },
       ],
     },
     ctaBand: {
-      title: "Prêt à structurer votre prochaine mission ?",
+      title: "Prêt à lancer une mission structurante ?",
       missionCta: "Lancer une mission",
       contactCta: "Contact us",
     },
@@ -178,16 +433,20 @@ export const fr: Dictionary = {
     introTitle: "À propos de Terra Pretiosa",
     introBlocks: [
       {
+        title: "Notre conviction",
+        text: "La civilisation humaine doit tout au sol et au sous-sol. Nous devons l'exploiter intelligemment pour notre prospérité et le protéger pour les générations futures.",
+      },
+      {
         title: "Positionnement",
-        text: "Terra Pretiosa est un cabinet stratégique spécialisé dans les services miniers et la gouvernance des ressources minérales.",
+        text: "Nous sommes une firme stratégique spécialisée en prestation de services et gouvernance des ressources minérales, résilience des chaînes d'approvisionnement et industrialisation durable en Afrique.",
       },
       {
-        title: "Vision",
-        text: "Nous accompagnons la résilience des chaînes d'approvisionnement minérales et une industrialisation durable du continent africain.",
+        title: "Ambition",
+        text: "Notre ambition est de renforcer la capacité des pays africains à transformer leurs ressources naturelles en leviers de développement économique, souveraineté industrielle et stabilité macroéconomique.",
       },
       {
-        title: "Méthode",
-        text: "Nos interventions combinent expertise technique, exécution terrain, renforcement institutionnel et standards de conformité.",
+        title: "Approche",
+        text: "Nous accompagnons gouvernements, institutions financières internationales et partenaires industriels avec une combinaison rigoureuse d'expertise technique minérale, analyse macroéconomique, politiques industrielles ciblées et gouvernance ESG alignée aux standards internationaux.",
       },
     ],
     corridorTitle: "Corridor d'activité",
@@ -203,65 +462,68 @@ export const fr: Dictionary = {
     hqAddress: "438 N Frederick Ave, Gaithersburg, MD 20877",
     megatrendsTitle: "Mégatendance",
     megatrendsText:
-      "La demande en matières premières minérales critiques impose de nouveaux standards de gouvernance, de transparence et de performance opérationnelle. Terra Pretiosa aide les acteurs publics et privés à anticiper ces mutations et à capturer durablement la valeur.",
+      "Face à la montée des exigences environnementales, de sécurité et de productivité, les États et compagnies minières africaines recherchent des partenaires capables d'offrir des services intégrés et durables: forage de précision, transport sécurisé, exhaure efficace des sites inondés et analyses rapides des minerais. Terra Pretiosa s'inscrit dans cette dynamique avec une forte réactivité locale et une conformité environnementale robuste.",
     miningDevTitle: "Exploitation minière pour un développement efficace",
     miningDevText:
-      "Nous promouvons une exploitation minière orientée résultats: meilleure productivité, recettes publiques sécurisées, industrialisation locale et compétitivité internationale.",
+      "Le concept clé est l'exploitation minière comme moteur de développement et de transformation continentale. Être acteur majeur des opérations minières permet de créer de la richesse, des emplois et de transmettre la connaissance et le savoir-faire.",
     sustainableTitle: "Développement durable",
     sustainableBullets: [
-      "Intégration des exigences ESG dans les plans d'exploitation",
-      "Réduction des impacts environnementaux et suivi de la qualité des eaux",
-      "Approches de réhabilitation des sites fondées sur les risques",
-      "Gouvernance transparente des flux et de la chaîne de custody",
+      "Suivi environnemental périodique",
+      "Gestion des déchets et boues miniers",
+      "Réhabilitation des sites et revégétalisation",
+      "Formation locale et emploi des jeunes opérateurs",
+      "Fourniture d'équipements écoénergétiques",
+      "Exhaure et traitement des eaux",
     ],
     ambitionsTitle: "Nos ambitions",
     ambitionsBullets: [
-      "Accélérer une gouvernance minérale robuste et mesurable",
-      "Renforcer la résilience des chaînes d'approvisionnement",
-      "Contribuer à l'industrialisation durable en Afrique",
-      "Soutenir la montée en compétences des équipes locales",
+      "La souveraineté économique des États producteurs",
+      "La résilience des chaînes d'approvisionnement stratégiques",
+      "L'industrialisation durable de l'Afrique",
+      "L'accélération de la transition énergétique mondiale",
+      "La stabilisation géopolitique des corridors miniers critiques",
     ],
   },
   services: {
     landingTitle: "Services",
     landingIntro:
-      "Terra Pretiosa met à disposition des expertises techniques, opérationnelles et de gouvernance pour répondre aux défis de la filière minérale.",
+      "Prestation de services en mines et ressources minérales: Terra Pretiosa intervient de l'analyse technique à la gouvernance stratégique avec une exécution orientée résultats, conformité et création de valeur locale.",
     categoriesTitle: "Catégories de services",
     sitemapTitle: "Plan des services",
     featuredTitle: "Insight en vedette",
     featuredText:
-      "La discipline opérationnelle et la gouvernance des données minières sont devenues des avantages compétitifs majeurs.",
+      "Nous plaçons l'Afrique au cœur de l'action en combinant excellence technique, maîtrise des risques opérationnels et gouvernance responsable.",
     categories: [
       {
         slug: "essais-analyses",
         title: "Essais & Analyses",
         summary:
-          "Caractérisation des matériaux, qualité des échantillons et fiabilité analytique pour des décisions techniques robustes.",
+          "Essais et analyses en traitement des minerais: au cœur de l'action pour une Afrique plus prospère et soucieuse de ses ressources.",
         icon: "EA",
         image: "/placeholders/category-1.svg",
         services: [
           makeService(
             "fragmentation-des-roches",
             "Fragmentation des roches",
-            "Optimisation des paramètres de fragmentation pour améliorer la libération minérale et les performances aval.",
+            "Contrôle de la fragmentation et du broyage pour fiabiliser l'échantillonnage, les analyses et la récupération métallurgique.",
             "/placeholders/service-card-1.svg",
           ),
           makeService(
             "preparation-des-echantillons",
             "Préparation des échantillons",
-            "Chaîne de préparation standardisée pour garantir la représentativité et limiter les biais analytiques.",
+            "Préparation rigoureuse d'échantillons homogènes et représentatifs pour sécuriser les décisions techniques et économiques.",
             "/placeholders/service-card-2.svg",
           ),
           makeService(
             "analyses-mineralogiques-et-chimiques",
             "Analyses minéralogiques et chimiques",
-            "Analyses ciblées pour déterminer la composition, la variabilité et les éléments de valeur ou pénalisants.",
+            "Analyses avancées (XRD, FRX, SEM, QEMSCAN) pour comprendre le gisement et optimiser les choix métallurgiques.",
             "/placeholders/service-card-3.svg",
           ),
           makeService(
             "tests-mineralurgiques-et-metallurgiques",
             "Tests minéralurgiques et métallurgiques",
-            "Programmes d'essais pour optimiser récupération, rendement et sélectivité des procédés.",
+            "Essais complets (flottation, gravimétrie, lixiviation) pour optimiser rendement, récupération et schémas de traitement.",
             "/placeholders/service-card-4.svg",
           ),
         ],
@@ -269,12 +531,17 @@ export const fr: Dictionary = {
           {
             question: "Pourquoi standardiser la préparation des échantillons ?",
             answer:
-              "La standardisation réduit les écarts, améliore la comparabilité des résultats et sécurise les décisions.",
+              "Une préparation inadéquate peut fausser la teneur, la minéralogie et la répartition des métaux. La standardisation réduit les écarts, améliore la comparabilité des résultats et sécurise les choix de procédés (flottation, lixiviation, gravimétrie).",
           },
           {
             question: "Quels livrables recevez-vous ?",
             answer:
-              "Des rapports techniques structurés, des tableaux de résultats et des recommandations actionnables.",
+              "Des rapports techniques structurés, tableaux de résultats, interprétation minéralogique/chimique et recommandations opérationnelles actionnables.",
+          },
+          {
+            question: "Quelles techniques analytiques utilisez-vous ?",
+            answer:
+              "Nos équipes utilisent notamment XRD, FRX, SEM et QEMSCAN pour produire une image détaillée de la répartition minéralogique, des associations minérales et de la granulométrie.",
           },
         ],
       },
@@ -282,136 +549,199 @@ export const fr: Dictionary = {
         slug: "operations-minieres",
         title: "Opérations minières",
         summary:
-          "Exécution opérationnelle et assistance technique pour renforcer disponibilité, sécurité et productivité.",
+          "Exhaure, forage et transport minier avec une approche orientée sécurité, rendement et continuité des opérations.",
         icon: "OM",
         image: "/placeholders/category-2.svg",
         services: [
           makeService(
             "exhaure-des-mines",
             "Exhaure des mines",
-            "Dimensionnement et supervision des solutions d'exhaure pour sécuriser la continuité des opérations.",
+            "Exhaure et pompage d'eau pour sécuriser les opérations, prévenir les risques HSE et protéger les équipements.",
             "/placeholders/service-card-5.svg",
           ),
           makeService(
             "forage-minier",
             "Forage minier",
-            "Support technique et organisationnel pour améliorer précision, cadence et sécurité des campagnes de forage.",
+            "Forage de production et de drainage en mine à ciel ouvert/souterraine avec maîtrise technique, rendement et sécurité.",
             "/placeholders/service-card-6.svg",
           ),
           makeService(
             "transport-minier",
             "Transport minier",
-            "Optimisation des flux de transport, de la planification flotte à la performance logistique terrain.",
+            "Transport sécurisé des minerais, équipements et consommables industriels avec traçabilité et coordination temps réel.",
             "/placeholders/service-card-7.svg",
           ),
+        ],
+        faq: [
+          {
+            question: "Quelle est votre approche pour l'exhaure des mines ?",
+            answer:
+              "Nous combinons réactivité opérationnelle, robustesse des équipements (pompes submersibles, motopompes, tuyauterie), maintenance préventive et planification des risques pour sécuriser la continuité des opérations.",
+          },
+          {
+            question: "Intervenez-vous en forage de production et de drainage ?",
+            answer:
+              "Oui. Nous réalisons forage de production et forage de drainage en mine à ciel ouvert et souterraine, avec une adaptation aux contraintes de profondeur, diamètre et précision.",
+          },
+          {
+            question: "Comment garantissez-vous la fiabilité du transport minier ?",
+            answer:
+              "Nous mobilisons une flotte adaptée (bennes, camions plateaux, citernes), des chauffeurs formés HSE, une traçabilité continue et une coordination temps réel.",
+          },
         ],
       },
       {
         slug: "formations",
         title: "Formations",
         summary:
-          "Programmes de montée en compétences orientés performance continue, procédés et qualité opérationnelle.",
+          "Montée en compétences des équipes minières pour gagner en confiance, leadership et performance.",
         icon: "FO",
         image: "/placeholders/category-3.svg",
         services: [
           makeService(
             "amelioration-continue",
             "Amélioration continue",
-            "Formations Lean, SPC, maintenance et performance pour installer une culture de progrès mesurable.",
+            "Formations Lean Mining, SPC, maintenance, coûts et performance pour ancrer une culture d'excellence opérationnelle.",
             "/placeholders/service-card-8.svg",
           ),
           makeService(
             "traitement-mineralurgique-et-des-eaux",
             "Traitement minéralurgique et des eaux",
-            "Formation technique sur les procédés minéralurgiques et la maîtrise de la qualité des eaux.",
+            "Formation en procédés minéralurgiques, performance métallurgique, traitement des effluents et gestion durable de l'eau.",
             "/placeholders/service-card-9.svg",
           ),
+        ],
+        faq: [
+          {
+            question: "Quels modules couvrez-vous en amélioration continue ?",
+            answer:
+              "Lean Mining, SPC, maintenance préventive, fiabilité des équipements, gestion des coûts et culture de performance, avec études de cas et ateliers pratiques.",
+          },
+          {
+            question: "La formation traitement minéralurgique inclut-elle les eaux ?",
+            answer:
+              "Oui. Elle inclut traitement des effluents, recyclage de l'eau industrielle et gestion du drainage minier acide (AMD), en plus des procédés minéralurgiques.",
+          },
         ],
       },
       {
         slug: "environnement",
         title: "Environnement",
         summary:
-          "Conformité environnementale, suivi de la qualité et réhabilitation pour une performance minière durable.",
+          "Politique environnementale, réhabilitation de sites, QA/QC et surveillance des eaux pour une performance durable.",
         icon: "EN",
         image: "/placeholders/category-4.svg",
         services: [
           makeService(
             "politique-environnementale",
             "Politique environnementale",
-            "Diagnostic, cadre juridique, ESG et mise en oeuvre de politiques environnementales adaptées.",
+            "Diagnostic, cadre juridique, consultation, standards ESG et mécanismes de contrôle pour des politiques environnementales robustes.",
             "/placeholders/service-card-10.svg",
           ),
           makeService(
             "evaluation-et-rehabilitation-des-sites",
             "Évaluation & réhabilitation des sites",
-            "Évaluation des risques et plans de réhabilitation progressifs des sites miniers.",
+            "Audits des passifs environnementaux, cartographie des risques et plans techniques/financiers de réhabilitation.",
             "/placeholders/service-card-11.svg",
           ),
           makeService(
             "controle-qualite-assurance-qualite",
             "Contrôle qualité / Assurance qualité",
-            "Systèmes QA/QC et chain of custody pour fiabiliser les données et les flux.",
+            "Système QA/QC complet (étalonnage, standards, blancs, duplicatas, chain of custody) pour résultats défendables.",
             "/placeholders/service-card-12.svg",
           ),
           makeService(
             "surveillance-qualite-des-eaux",
             "Surveillance qualité des eaux",
-            "Programmes de monitoring des eaux de surface et souterraines avec reporting de conformité.",
+            "Surveillance de la qualité des eaux en zones reculées et nouveaux forages selon les usages et exigences de conformité.",
             "/placeholders/service-card-13.svg",
           ),
           makeService(
             "effluents-miniers-et-drainage-minier-acide",
             "Effluents miniers + drainage minier acide (AMD)",
-            "Évaluation et traitement des effluents miniers, prévention et mitigation du drainage minier acide.",
+            "Analyses, diagnostic des pollutions et conception de solutions de traitement des effluents et du drainage minier acide.",
             "/placeholders/service-card-14.svg",
           ),
+        ],
+        faq: [
+          {
+            question: "Que couvre votre service de politique environnementale ?",
+            answer:
+              "Diagnostic sectoriel, analyse du cadre juridique, consultation des parties prenantes, standards ESG, mécanismes de contrôle, garantie environnementale et plan de mise en œuvre.",
+          },
+          {
+            question: "Comment sécurisez-vous la qualité des analyses ?",
+            answer:
+              "Par un système QA/QC strict: étalonnage des instruments, échantillons blancs et duplicatas, standards certifiés, chaîne de custody documentée et audits internes.",
+          },
+          {
+            question: "Proposez-vous des solutions contre le drainage minier acide (AMD) ?",
+            answer:
+              "Oui. Nous faisons le diagnostic des sources de pollution, concevons des traitements adaptés (neutralisation, précipitation, filtration, membranes) et mettons en place un monitoring continu.",
+          },
         ],
       },
       {
         slug: "gouvernance-minerale",
         title: "Conseil en gouvernance des matières premières minérales",
         summary:
-          "Appui stratégique aux États et institutions pour structurer recettes, contrôle et traçabilité du secteur minier.",
+          "Gouvernance et développement stratégique des ressources naturelles pour transformer l'extraction en valeur locale durable.",
         icon: "GV",
         image: "/placeholders/category-5.svg",
         services: [
           makeService(
             "strategie-recettes-minieres",
             "Stratégie recettes minières",
-            "Conception de stratégies de mobilisation, sécurisation et projection des recettes minières.",
+            "Stratégies d'amélioration des recettes minières et sécurisation des flux financiers extractifs.",
             "/placeholders/service-card-15.svg",
           ),
           makeService(
             "structuration-organes-et-unites-revenus",
             "Structuration organes/instances & unités revenus",
-            "Organisation des structures institutionnelles dédiées à la gouvernance et aux revenus miniers.",
+            "Structuration institutionnelle des organes et unités en charge des ressources et revenus miniers.",
             "/placeholders/service-card-16.svg",
           ),
           makeService(
             "integration-locale-et-politique-industrielle",
             "Intégration locale & politique industrielle",
-            "Dispositifs d'intégration locale pour renforcer la transformation et la valeur ajoutée nationales.",
+            "Conseil en intégration locale: compétitivité, CAPEX raffineries, emploi, incitations fiscales et zones industrielles.",
             "/placeholders/service-card-17.svg",
           ),
           makeService(
             "controle-production-et-reporting",
             "Contrôle production + reporting",
-            "Cadres de contrôle et de reporting pour une supervision fiable de la production minière.",
+            "Mise en œuvre des contrôles de production et systèmes de reporting pour une supervision minière fiable.",
             "/placeholders/service-card-18.svg",
           ),
           makeService(
             "audit-flux-paiements-et-tracabilite-export",
             "Audit flux paiements + traçabilité export",
-            "Audit des flux financiers et des volumes exportés pour limiter les pertes de revenus.",
+            "Audit des flux de paiements et traçabilité des volumes exportés pour réduire les pertes de revenus.",
             "/placeholders/service-card-19.svg",
           ),
           makeService(
             "renforcement-capacites-administration",
             "Renforcement capacités administration",
-            "Programmes de renforcement de capacités au profit des administrations minières.",
+            "Renforcement des capacités des administrations minières: formation, outils d'évaluation et assistance technique continue.",
             "/placeholders/service-card-20.svg",
           ),
+        ],
+        faq: [
+          {
+            question: "Quels livrables en gouvernance minérale fournissez-vous ?",
+            answer:
+              "Stratégies d'amélioration des recettes minières, manuels de procédures, outils d'évaluation des projets, plans de contrôle production/reporting et dispositifs de traçabilité export.",
+          },
+          {
+            question: "Intervenez-vous sur l'intégration locale et la politique industrielle ?",
+            answer:
+              "Oui. Nous réalisons études de compétitivité, analyses CAPEX de raffineries, plans d'incitations fiscales et structuration de zones industrielles minières.",
+          },
+          {
+            question: "Accompagnez-vous les administrations sur la durée ?",
+            answer:
+              "Oui. Nos programmes incluent formation des cadres ministériels, création d'unités spécialisées revenus miniers et assistance technique continue.",
+          },
         ],
       },
     ],
@@ -428,8 +758,8 @@ export const fr: Dictionary = {
   team: {
     pageTitle: "Notre équipe",
     intro:
-      "Une équipe pluridisciplinaire au service des opérations minières, de l'environnement et de la gouvernance des matières premières.",
-    note: "Photos et mini CV seront ajoutés.",
+      "Ici, nous mettrons les photos et mini CV de toute l'équipe qui travaille dans la firme.",
+    note: "Photos et mini CV en cours d'intégration.",
     cvLabel: "Télécharger mini CV",
     members: [
       {
@@ -473,7 +803,7 @@ export const fr: Dictionary = {
   contact: {
     pageTitle: "Contact",
     intro:
-      "Discutons de vos enjeux techniques, environnementaux et de gouvernance des matières premières minérales.",
+      "Discutons de vos enjeux techniques, environnementaux et de gouvernance des matières premières minérales. Vous pouvez également nous contacter via le formulaire ci-dessous.",
     hqTitle: "Siège social",
     hqAddress: "438 N Frederick Ave, Gaithersburg, MD 20877",
     corridorTitle: "Corridor d'activité",
@@ -486,9 +816,9 @@ export const fr: Dictionary = {
       "Mali",
     ],
     phoneLabel: "Téléphone",
-    phoneValue: "À définir",
+    phoneValue: "Numéro personnel (temporaire, en attendant la ligne entreprise)",
     emailLabel: "Email",
-    emailValue: "À créer",
+    emailValue: "Email de la compagnie à créer",
     formTitle: "Envoyez-nous un message",
     formSuccess: "Merci, votre message a bien été envoyé.",
     formFields: {
@@ -506,7 +836,7 @@ export const fr: Dictionary = {
   mission: {
     pageTitle: "Lancer une mission",
     intro:
-      "Partagez les objectifs de votre mission. Notre équipe vous répondra avec une proposition adaptée.",
+      "Partagez les objectifs et contraintes de votre mission. Notre équipe vous répondra avec une proposition adaptée au contexte de votre projet.",
     formSuccess: "Merci. Votre demande de mission a été enregistrée.",
     missionTypes: [
       "Essais & Analyses",
