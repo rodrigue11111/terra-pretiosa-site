@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollSpotlightHero } from "@/components/services/ScrollSpotlightHero";
-import { serviceFaqsBySlug } from "@/content/serviceFaqs";
+import { serviceFaqsBySlugEn, serviceFaqsBySlugFr } from "@/content/serviceFaqs";
 import { getCategoryBySlug, getDictionary, isSupportedLang } from "@/content";
 
 interface ServiceCategoryPageProps {
@@ -35,8 +35,9 @@ export default async function ServiceCategoryPage({
     categoryData.services[1]?.image ?? categoryData.image,
     categoryData.services[2]?.image ?? categoryData.image,
   ];
+  const serviceFaqMap = lang === "fr" ? serviceFaqsBySlugFr : serviceFaqsBySlugEn;
   const sectionFaqItems = categoryData.services.flatMap((service) =>
-    (serviceFaqsBySlug[service.slug] ?? []).map((faq) => ({
+    (serviceFaqMap[service.slug] ?? []).map((faq) => ({
       ...faq,
       key: `${service.slug}-${faq.question}`,
       serviceTitle: service.title,

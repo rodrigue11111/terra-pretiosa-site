@@ -13,7 +13,7 @@ import {
   getServiceBySlug,
   isSupportedLang,
 } from "@/content";
-import { serviceFaqsBySlug } from "@/content/serviceFaqs";
+import { serviceFaqsBySlugEn, serviceFaqsBySlugFr } from "@/content/serviceFaqs";
 
 interface ServiceDetailPageProps {
   params: Promise<{ lang: string; category: string; slug: string }>;
@@ -39,7 +39,8 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
     notFound();
   }
 
-  const serviceFaq = serviceFaqsBySlug[service.slug] ?? [];
+  const serviceFaqMap = lang === "fr" ? serviceFaqsBySlugFr : serviceFaqsBySlugEn;
+  const serviceFaq = serviceFaqMap[service.slug] ?? [];
 
   const spotlightItems = [
     { image: service.image, label: service.title },
