@@ -81,64 +81,91 @@ export function MegaMenu({
 
   return (
     <div className="tp-enter-up absolute inset-x-0 top-full z-40 border-t border-white/10 bg-neutral-900 shadow-2xl">
-      <div className="tp-container grid gap-8 py-8 md:grid-cols-[280px_1fr]">
-        <div className="space-y-2">
-          {categories.map((category: ServiceCategory) => (
-            <button
-              key={category.slug}
-              type="button"
-              className={cn(
-                "w-full rounded-sm px-4 py-3 text-left text-sm font-semibold uppercase tracking-wide transition",
-                category.slug === activeCategory.slug
-                  ? "bg-blue-900 text-white"
-                  : "text-blue-100 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white",
-              )}
-              onMouseEnter={() => onCategoryChange(category.slug)}
-              onFocus={() => onCategoryChange(category.slug)}
-              onClick={() => onCategoryChange(category.slug)}
-            >
-              {category.title}
-            </button>
-          ))}
-        </div>
-        <div>
-          <p className="mb-5 text-xs uppercase tracking-[0.22em] text-blue-200">
-            {activeCategory.title}
-          </p>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {activeCategory.services.slice(0, 6).map((service, index) => (
-              <Link
-                key={service.slug}
-                href={`/${lang}/services/${activeCategory.slug}/${service.slug}`}
-                className="tp-card-lift group flex items-center gap-3 rounded-sm border border-white/10 bg-white/5 p-2 transition hover:bg-white/10"
-                onClick={onClose}
-              >
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full ring-1 ring-white/20">
-                  <Image
-                    src={
-                      megaMenuTileImages[activeCategory.slug]?.[index] ??
-                      service.image
-                    }
-                    alt={service.title}
-                    fill
-                    className="object-cover transition duration-300 group-hover:scale-105"
-                    sizes="64px"
-                  />
-                </div>
-                <span className="text-sm leading-tight text-white">
-                  {service.title}
-                </span>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-6">
+      <div className="tp-container py-9">
+        <div className="grid gap-8 md:grid-cols-[300px_1fr] lg:grid-cols-[180px_320px_1fr]">
+          <div className="hidden items-start justify-center lg:flex">
             <Link
-              href={`/${lang}/services/${activeCategory.slug}`}
-              className="text-sm font-semibold uppercase tracking-wide text-blue-200 transition hover:text-white"
+              href={`/${lang}`}
+              className="group mt-6 inline-flex h-28 w-28 items-center justify-center rounded-full bg-blue-800 ring-2 ring-white/20 transition hover:scale-105 hover:bg-blue-700"
               onClick={onClose}
             >
-              {dictionary.common.learnMore}
+              <span className="text-xl font-semibold uppercase tracking-[0.2em] text-white">
+                TP
+              </span>
             </Link>
+          </div>
+
+          <div className="space-y-1 md:border-r md:border-white/30 md:pr-8">
+            {categories.map((category: ServiceCategory) => (
+              <button
+                key={category.slug}
+                type="button"
+                className={cn(
+                  "group flex w-full items-center justify-between rounded-sm px-2 py-2 text-left text-base transition",
+                  category.slug === activeCategory.slug
+                    ? "text-blue-300"
+                    : "text-white/90 hover:text-white",
+                )}
+                onMouseEnter={() => onCategoryChange(category.slug)}
+                onFocus={() => onCategoryChange(category.slug)}
+                onClick={() => onCategoryChange(category.slug)}
+              >
+                <span className="pr-3 leading-tight">{category.title}</span>
+                <span
+                  className={cn(
+                    "inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition",
+                    category.slug === activeCategory.slug
+                      ? "border-blue-300 bg-blue-400/20 text-blue-100"
+                      : "border-white/35 text-white/70 group-hover:border-white group-hover:text-white",
+                  )}
+                >
+                  {">"}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <div className="min-h-[260px]">
+            <p className="mb-5 text-xs uppercase tracking-[0.22em] text-blue-200">
+              {activeCategory.title}
+            </p>
+            <div key={activeCategory.slug} className="tp-enter-up grid grid-cols-2 gap-x-6 gap-y-8 xl:grid-cols-3">
+              {activeCategory.services.slice(0, 6).map((service, index) => (
+                <Link
+                  key={service.slug}
+                  href={`/${lang}/services/${activeCategory.slug}/${service.slug}`}
+                  className="group block text-center"
+                  onClick={onClose}
+                >
+                  <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full ring-1 ring-white/25 sm:h-32 sm:w-32 xl:h-36 xl:w-36">
+                    <Image
+                      src={
+                        megaMenuTileImages[activeCategory.slug]?.[index] ??
+                        service.image
+                      }
+                      alt={service.title}
+                      fill
+                      className="object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                      sizes="(max-width: 768px) 112px, (max-width: 1280px) 128px, 144px"
+                    />
+                  </div>
+                  <span className="mt-3 block text-sm leading-tight text-white/90 transition group-hover:text-white">
+                    {service.title}
+                  </span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <Link
+                href={`/${lang}/services/${activeCategory.slug}`}
+                className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-blue-200 transition hover:text-white"
+                onClick={onClose}
+              >
+                {dictionary.common.learnMore}
+                <span aria-hidden>{">"}</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
