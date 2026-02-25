@@ -5,6 +5,15 @@ export interface LinkItem {
   href: string;
 }
 
+export interface FooterGroup {
+  title: string;
+  links: LinkItem[];
+}
+
+export interface FooterColumn {
+  groups: FooterGroup[];
+}
+
 export interface HeroSlide {
   title: string;
   subtitle: string;
@@ -205,12 +214,11 @@ export interface Dictionary {
     };
   };
   footer: {
-    columns: {
-      title: string;
-      links: LinkItem[];
-    }[];
+    columns: FooterColumn[];
+    quickLinksTitle: string;
+    quickLinks: LinkItem[];
     legal: string;
-    socials: string[];
+    socials: LinkItem[];
   };
   search: {
     title: string;

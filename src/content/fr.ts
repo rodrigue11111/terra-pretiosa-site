@@ -878,37 +878,165 @@ export const fr: Dictionary = {
   footer: {
     columns: [
       {
-        title: "Entreprise",
-        links: [
-          { label: "À propos", href: "/fr/company#about" },
-          { label: "Mégatendance", href: "/fr/company#megatrends" },
-          { label: "Développement durable", href: "/fr/company#sustainable" },
+        groups: [
+          {
+            title: "Informations entreprise",
+            links: [
+              { label: "A propos", href: "/fr/company#about" },
+              { label: "Megatendance", href: "/fr/company#megatrends" },
+              { label: "Developpement durable", href: "/fr/company#sustainable" },
+              { label: "Nos ambitions", href: "/fr/company#ambitions" },
+              { label: "Equipe", href: "/fr/team" },
+              { label: "Contact", href: "/fr/contact" },
+            ],
+          },
+          {
+            title: "Corridor d activite",
+            links: [
+              { label: "Pays d intervention", href: "/fr/company#corridor" },
+              { label: "Lancer une mission", href: "/fr/mission" },
+            ],
+          },
         ],
       },
       {
-        title: "Services",
-        links: [
-          { label: "Essais & Analyses", href: "/fr/services/essais-analyses" },
+        groups: [
           {
-            label: "Opérations minières",
-            href: "/fr/services/operations-minieres",
+            title: "Essais & Analyses",
+            links: [
+              {
+                label: "Fragmentation des roches",
+                href: "/fr/services/essais-analyses/fragmentation-des-roches",
+              },
+              {
+                label: "Preparation des echantillons",
+                href: "/fr/services/essais-analyses/preparation-des-echantillons",
+              },
+              {
+                label: "Analyses mineralogiques et chimiques",
+                href: "/fr/services/essais-analyses/analyses-mineralogiques-et-chimiques",
+              },
+              {
+                label: "Tests mineralurgiques et metallurgiques",
+                href: "/fr/services/essais-analyses/tests-mineralurgiques-et-metallurgiques",
+              },
+            ],
           },
           {
-            label: "Gouvernance minérale",
-            href: "/fr/services/gouvernance-minerale",
+            title: "Operations minieres",
+            links: [
+              {
+                label: "Exhaure des mines",
+                href: "/fr/services/operations-minieres/exhaure-des-mines",
+              },
+              {
+                label: "Forage minier",
+                href: "/fr/services/operations-minieres/forage-minier",
+              },
+              {
+                label: "Transport minier",
+                href: "/fr/services/operations-minieres/transport-minier",
+              },
+            ],
           },
         ],
       },
       {
-        title: "Contact",
-        links: [
-          { label: "Nous écrire", href: "/fr/contact" },
-          { label: "Lancer une mission", href: "/fr/mission" },
+        groups: [
+          {
+            title: "Formations",
+            links: [
+              {
+                label: "Amelioration continue",
+                href: "/fr/services/formations/amelioration-continue",
+              },
+              {
+                label: "Traitement mineralurgique et des eaux",
+                href: "/fr/services/formations/traitement-mineralurgique-et-des-eaux",
+              },
+            ],
+          },
+          {
+            title: "Environnement",
+            links: [
+              {
+                label: "Politique environnementale",
+                href: "/fr/services/environnement/politique-environnementale",
+              },
+              {
+                label: "Evaluation et rehabilitation des sites",
+                href: "/fr/services/environnement/evaluation-et-rehabilitation-des-sites",
+              },
+              {
+                label: "Controle qualite / Assurance qualite",
+                href: "/fr/services/environnement/controle-qualite-assurance-qualite",
+              },
+              {
+                label: "Surveillance qualite des eaux",
+                href: "/fr/services/environnement/surveillance-qualite-des-eaux",
+              },
+              {
+                label: "Effluents miniers + AMD",
+                href: "/fr/services/environnement/effluents-miniers-et-drainage-minier-acide",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        groups: [
+          {
+            title: "Gouvernance minerale",
+            links: [
+              {
+                label: "Strategie recettes minieres",
+                href: "/fr/services/gouvernance-minerale/strategie-recettes-minieres",
+              },
+              {
+                label: "Structuration organes et unites revenus",
+                href: "/fr/services/gouvernance-minerale/structuration-organes-et-unites-revenus",
+              },
+              {
+                label: "Integration locale et politique industrielle",
+                href: "/fr/services/gouvernance-minerale/integration-locale-et-politique-industrielle",
+              },
+              {
+                label: "Controle production et reporting",
+                href: "/fr/services/gouvernance-minerale/controle-production-et-reporting",
+              },
+              {
+                label: "Audit flux paiements et tracabilite export",
+                href: "/fr/services/gouvernance-minerale/audit-flux-paiements-et-tracabilite-export",
+              },
+              {
+                label: "Renforcement capacites administration",
+                href: "/fr/services/gouvernance-minerale/renforcement-capacites-administration",
+              },
+            ],
+          },
+          {
+            title: "Acces rapide",
+            links: [
+              { label: "Tous les services", href: "/fr/services" },
+              { label: "Nous ecrire", href: "/fr/contact" },
+              { label: "Lancer une mission", href: "/fr/mission" },
+            ],
+          },
         ],
       },
     ],
-    legal: "© Terra Pretiosa. Tous droits réservés.",
-    socials: ["LinkedIn", "X", "YouTube"],
+    quickLinksTitle: "Autres liens",
+    quickLinks: [
+      { label: "Corridor d activite", href: "/fr/company#corridor" },
+      { label: "Page entreprise", href: "/fr/company" },
+      { label: "Formulaire mission", href: "/fr/mission" },
+    ],
+    legal: "(c) Terra Pretiosa. Tous droits reserves.",
+    socials: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/" },
+      { label: "X", href: "https://x.com/" },
+      { label: "YouTube", href: "https://www.youtube.com/" },
+    ],
   },
   search: {
     title: "Recherche",
@@ -917,3 +1045,5 @@ export const fr: Dictionary = {
     noResult: "Aucun résultat pour cette recherche.",
   },
 };
+
+

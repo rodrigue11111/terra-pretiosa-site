@@ -437,34 +437,165 @@ export const en: Dictionary = {
   footer: {
     columns: [
       {
-        title: "Company",
-        links: [
-          { label: "About", href: "/en/company#about" },
-          { label: "Megatrends", href: "/en/company#megatrends" },
-          { label: "Sustainable development", href: "/en/company#sustainable" },
-        ],
-      },
-      {
-        title: "Services",
-        links: [
-          { label: "Testing & Analysis", href: "/en/services/essais-analyses" },
-          { label: "Mining operations", href: "/en/services/operations-minieres" },
+        groups: [
           {
-            label: "Mineral governance",
-            href: "/en/services/gouvernance-minerale",
+            title: "Company information",
+            links: [
+              { label: "About", href: "/en/company#about" },
+              { label: "Megatrends", href: "/en/company#megatrends" },
+              { label: "Sustainable development", href: "/en/company#sustainable" },
+              { label: "Ambitions", href: "/en/company#ambitions" },
+              { label: "Team", href: "/en/team" },
+              { label: "Contact", href: "/en/contact" },
+            ],
+          },
+          {
+            title: "Activity corridor",
+            links: [
+              { label: "Countries of operation", href: "/en/company#corridor" },
+              { label: "Launch a mission", href: "/en/mission" },
+            ],
           },
         ],
       },
       {
-        title: "Contact",
-        links: [
-          { label: "Contact us", href: "/en/contact" },
-          { label: "Launch a mission", href: "/en/mission" },
+        groups: [
+          {
+            title: "Testing & Analysis",
+            links: [
+              {
+                label: "Rock Fragmentation",
+                href: "/en/services/essais-analyses/fragmentation-des-roches",
+              },
+              {
+                label: "Sample Preparation",
+                href: "/en/services/essais-analyses/preparation-des-echantillons",
+              },
+              {
+                label: "Mineralogical and Chemical Analysis",
+                href: "/en/services/essais-analyses/analyses-mineralogiques-et-chimiques",
+              },
+              {
+                label: "Mineralurgical and Metallurgical Testing",
+                href: "/en/services/essais-analyses/tests-mineralurgiques-et-metallurgiques",
+              },
+            ],
+          },
+          {
+            title: "Mining Operations",
+            links: [
+              {
+                label: "Mine Dewatering",
+                href: "/en/services/operations-minieres/exhaure-des-mines",
+              },
+              {
+                label: "Mining Drilling",
+                href: "/en/services/operations-minieres/forage-minier",
+              },
+              {
+                label: "Mining Transport",
+                href: "/en/services/operations-minieres/transport-minier",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        groups: [
+          {
+            title: "Training",
+            links: [
+              {
+                label: "Continuous Improvement",
+                href: "/en/services/formations/amelioration-continue",
+              },
+              {
+                label: "Mineral Processing and Water Treatment",
+                href: "/en/services/formations/traitement-mineralurgique-et-des-eaux",
+              },
+            ],
+          },
+          {
+            title: "Environment",
+            links: [
+              {
+                label: "Environmental Policy",
+                href: "/en/services/environnement/politique-environnementale",
+              },
+              {
+                label: "Site Assessment and Rehabilitation",
+                href: "/en/services/environnement/evaluation-et-rehabilitation-des-sites",
+              },
+              {
+                label: "Quality Control / Quality Assurance",
+                href: "/en/services/environnement/controle-qualite-assurance-qualite",
+              },
+              {
+                label: "Water Quality Monitoring",
+                href: "/en/services/environnement/surveillance-qualite-des-eaux",
+              },
+              {
+                label: "Mine Effluents + AMD",
+                href: "/en/services/environnement/effluents-miniers-et-drainage-minier-acide",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        groups: [
+          {
+            title: "Mineral governance advisory",
+            links: [
+              {
+                label: "Mining Revenue Strategy",
+                href: "/en/services/gouvernance-minerale/strategie-recettes-minieres",
+              },
+              {
+                label: "Structuring Bodies and Revenue Units",
+                href: "/en/services/gouvernance-minerale/structuration-organes-et-unites-revenus",
+              },
+              {
+                label: "Local Integration and Industrial Policy",
+                href: "/en/services/gouvernance-minerale/integration-locale-et-politique-industrielle",
+              },
+              {
+                label: "Production Control and Reporting",
+                href: "/en/services/gouvernance-minerale/controle-production-et-reporting",
+              },
+              {
+                label: "Payment Flow Audit and Export Traceability",
+                href: "/en/services/gouvernance-minerale/audit-flux-paiements-et-tracabilite-export",
+              },
+              {
+                label: "Public Administration Capacity Building",
+                href: "/en/services/gouvernance-minerale/renforcement-capacites-administration",
+              },
+            ],
+          },
+          {
+            title: "Quick access",
+            links: [
+              { label: "All services", href: "/en/services" },
+              { label: "Contact us", href: "/en/contact" },
+              { label: "Launch a mission", href: "/en/mission" },
+            ],
+          },
         ],
       },
     ],
-    legal: "© Terra Pretiosa. All rights reserved.",
-    socials: ["LinkedIn", "X", "YouTube"],
+    quickLinksTitle: "Other links",
+    quickLinks: [
+      { label: "Activity corridor", href: "/en/company#corridor" },
+      { label: "Company page", href: "/en/company" },
+      { label: "Mission request", href: "/en/mission" },
+    ],
+    legal: "(c) Terra Pretiosa. All rights reserved.",
+    socials: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/" },
+      { label: "X", href: "https://x.com/" },
+      { label: "YouTube", href: "https://www.youtube.com/" },
+    ],
   },
   search: {
     title: "Search",
@@ -473,3 +604,4 @@ export const en: Dictionary = {
     noResult: "No result for this query.",
   },
 };
+
