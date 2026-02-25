@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
 import { AnimatedHighlights } from "@/components/services/AnimatedHighlights";
+import { ServiceFaq } from "@/components/services/ServiceFaq";
 import { RelatedServices } from "@/components/services/RelatedServices";
 import { ScrollSpotlightHero } from "@/components/services/ScrollSpotlightHero";
 import { ServiceIntro } from "@/components/services/ServiceIntro";
@@ -12,6 +13,7 @@ import {
   getServiceBySlug,
   isSupportedLang,
 } from "@/content";
+import { serviceFaqsBySlug } from "@/content/serviceFaqs";
 
 interface ServiceDetailPageProps {
   params: Promise<{ lang: string; category: string; slug: string }>;
@@ -37,6 +39,8 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
     notFound();
   }
 
+  const serviceFaq = serviceFaqsBySlug[service.slug] ?? [];
+
   const spotlightItems = [
     { image: service.image, label: service.title },
     ...service.highlights.slice(0, 2).map((highlight) => ({
@@ -56,6 +60,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
       <ScrollSpotlightHero items={spotlightItems} />
       <ServiceIntro service={service} />
       <AnimatedHighlights lang={lang} items={service.highlights} />
+      <ServiceFaq title={dictionary.services.faqTitle} items={serviceFaq} />
       <RelatedServices
         lang={lang}
         dictionary={dictionary}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollSpotlightHero } from "@/components/services/ScrollSpotlightHero";
+import { serviceFaqsBySlug } from "@/content/serviceFaqs";
 import { getCategoryBySlug, getDictionary, isSupportedLang } from "@/content";
 
 interface ServiceCategoryPageProps {
@@ -34,6 +35,21 @@ export default async function ServiceCategoryPage({
     categoryData.services[1]?.image ?? categoryData.image,
     categoryData.services[2]?.image ?? categoryData.image,
   ];
+  const sectionFaqItems = categoryData.services.flatMap((service) =>
+    (serviceFaqsBySlug[service.slug] ?? []).map((faq) => ({
+      ...faq,
+      key: `${service.slug}-${faq.question}`,
+      serviceTitle: service.title,
+    })),
+  );
+  const faqItems =
+    sectionFaqItems.length > 0
+      ? sectionFaqItems
+      : (categoryData.faq ?? []).map((faq) => ({
+          ...faq,
+          key: faq.question,
+          serviceTitle: null,
+        }));
 
   return (
     <>
@@ -117,7 +133,7 @@ export default async function ServiceCategoryPage({
         </div>
       </section>
 
-      {categoryData.faq?.length ? (
+      {faqItems.length ? (
         <section className="bg-neutral-100 py-14">
           <Reveal y={16}>
             <div className="tp-container max-w-4xl">
@@ -125,14 +141,19 @@ export default async function ServiceCategoryPage({
                 {dictionary.services.faqTitle}
               </h2>
               <div className="mt-6 space-y-3">
-                {categoryData.faq.map((item) => (
+                {faqItems.map((item) => (
                   <details
-                    key={item.question}
+                    key={item.key}
                     className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-4"
                   >
                     <summary className="cursor-pointer text-sm font-semibold text-blue-900">
                       {item.question}
                     </summary>
+                    {item.serviceTitle ? (
+                      <p className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-blue-700">
+                        {item.serviceTitle}
+                      </p>
+                    ) : null}
                     <p className="mt-2 text-sm text-slate-700">{item.answer}</p>
                   </details>
                 ))}
