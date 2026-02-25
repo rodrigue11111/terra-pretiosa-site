@@ -9,8 +9,8 @@ interface FooterProps {
 export function Footer({ lang, dictionary }: FooterProps) {
   return (
     <footer className="relative overflow-hidden bg-neutral-900 text-white">
-      <div className="tp-ambient-grid absolute inset-0 opacity-20" />
-      <div className="tp-container py-12">
+      <div className="tp-ambient-grid pointer-events-none absolute inset-0 opacity-20" />
+      <div className="tp-container relative z-10 py-12">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="tp-heading text-sm text-blue-200">{dictionary.siteName}</p>
