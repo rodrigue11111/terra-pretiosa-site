@@ -18,7 +18,7 @@ export function ServiceIntro({ service }: ServiceIntroProps) {
         </Reveal>
 
         <Reveal delayMs={110} x={22} y={20}>
-          <div className="tp-card-lift rounded-sm border border-neutral-200 bg-neutral-50 p-6">
+          <div className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-blue-50/70 to-white p-6">
             <h2 className="tp-heading text-xs text-blue-900">Capabilities</h2>
             <ul className="mt-4 space-y-3 text-sm text-slate-700">
               {service.capabilities.map((capability) => (
@@ -34,3 +34,4 @@ export function ServiceIntro({ service }: ServiceIntroProps) {
     </section>
   );
 }
+

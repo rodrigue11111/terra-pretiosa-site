@@ -35,7 +35,7 @@ export function RelatedServices({
         <div className="mt-6 grid gap-5 md:grid-cols-3">
           {related.map((service, index) => (
             <Reveal key={service.slug} y={20} delayMs={index * 80}>
-              <article className="tp-card-lift overflow-hidden rounded-sm border border-neutral-200 bg-white">
+              <article className="tp-card-lift overflow-hidden rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70">
                 <div className="relative h-44">
                   <Image
                     src={service.image}
@@ -63,3 +63,4 @@ export function RelatedServices({
     </section>
   );
 }
+

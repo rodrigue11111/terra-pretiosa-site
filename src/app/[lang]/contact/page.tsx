@@ -31,7 +31,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
         </Reveal>
 
         <Reveal y={16} delayMs={120} className="mt-8">
-          <div className="grid gap-4 rounded-sm border border-neutral-200 bg-white p-5 text-sm text-slate-700 md:grid-cols-3">
+          <div className="grid gap-4 rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-5 text-sm text-slate-700 md:grid-cols-3">
             <article>
               <p className="tp-heading text-xs text-blue-900">{dictionary.contact.hqTitle}</p>
               <p className="mt-2">{dictionary.contact.hqAddress}</p>
@@ -58,3 +58,4 @@ export default async function ContactPage({ params }: ContactPageProps) {
     </section>
   );
 }
+

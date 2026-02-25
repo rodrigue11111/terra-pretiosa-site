@@ -22,7 +22,7 @@ export function ServiceFaq({ title, items }: ServiceFaqProps) {
             {items.map((item) => (
               <details
                 key={item.question}
-                className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-4"
+                className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-4"
               >
                 <summary className="cursor-pointer text-sm font-semibold text-blue-900">
                   {item.question}
@@ -36,4 +36,5 @@ export function ServiceFaq({ title, items }: ServiceFaqProps) {
     </section>
   );
 }
+
 

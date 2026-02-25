@@ -24,7 +24,7 @@ function HighlightCard({
     <Reveal x={isRight ? 34 : -34} y={30} delayMs={index * 90}>
       <article
         className={cn(
-          "tp-card-lift grid gap-7 rounded-sm border border-neutral-200 bg-white p-6 sm:p-7 lg:grid-cols-[250px_1fr] lg:items-center",
+          "tp-card-lift grid gap-7 rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-6 sm:p-7 lg:grid-cols-[250px_1fr] lg:items-center",
           isRight ? "lg:ml-12" : "lg:mr-12",
         )}
       >
@@ -69,3 +69,4 @@ export function AnimatedHighlights({ lang, items }: AnimatedHighlightsProps) {
     </section>
   );
 }
+

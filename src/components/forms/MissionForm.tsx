@@ -91,12 +91,12 @@ export function MissionForm({ dictionary }: MissionFormProps) {
   };
 
   const fieldClass =
-    "w-full rounded-sm border border-neutral-300 bg-white px-4 py-3 text-sm outline-none transition duration-300 focus:-translate-y-0.5 focus:border-blue-700 focus:shadow-[0_8px_18px_rgba(29,78,216,0.16)]";
+    "w-full rounded-sm border border-blue-200/70 bg-white/95 px-4 py-3 text-sm outline-none transition duration-300 focus:-translate-y-0.5 focus:border-blue-700 focus:shadow-[0_8px_18px_rgba(46,169,176,0.2)]";
 
   return (
     <form
       onSubmit={onSubmit}
-      className="tp-card-lift space-y-4 rounded-sm border border-neutral-200 bg-white p-6"
+      className="tp-card-lift space-y-4 rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-6"
     >
       <div className="grid gap-4 md:grid-cols-2">
         <div>
@@ -250,3 +250,4 @@ export function MissionForm({ dictionary }: MissionFormProps) {
     </form>
   );
 }
+

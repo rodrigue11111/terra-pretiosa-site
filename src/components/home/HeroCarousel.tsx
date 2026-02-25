@@ -60,7 +60,7 @@ export function HeroCarousel({ dictionary }: HeroCarouselProps) {
           />
           <div className="tp-ambient-grid absolute inset-0 opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/25" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(59,130,246,0.32),transparent_38%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(102,213,213,0.32),transparent_38%)]" />
           <div className="absolute -left-16 top-24 h-44 w-44 rounded-full bg-blue-300/20 blur-3xl [animation:tpFloat_8s_ease-in-out_infinite]" />
           <div className="absolute bottom-16 right-8 h-56 w-56 rounded-full bg-blue-500/20 blur-3xl [animation:tpFloat_9s_ease-in-out_infinite_0.4s]" />
           <div className="tp-container relative flex h-full items-center">

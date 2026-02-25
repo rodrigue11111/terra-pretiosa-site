@@ -66,7 +66,7 @@ export default async function ServiceCategoryPage({
             </div>
           </Reveal>
           <Reveal x={24} y={20} delayMs={90}>
-            <div className="tp-card-lift relative overflow-hidden rounded-sm border border-neutral-200 bg-white p-2">
+            <div className="tp-card-lift relative overflow-hidden rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-2">
               <div className="grid min-h-[170px] grid-cols-2 gap-2 sm:min-h-[240px]">
                 <div className="relative row-span-2 overflow-hidden rounded-sm">
                   <Image
@@ -109,7 +109,7 @@ export default async function ServiceCategoryPage({
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {categoryData.services.map((service, index) => (
               <Reveal key={service.slug} y={20} delayMs={index * 70}>
-                <article className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-5">
+                <article className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-5">
                   <div className="relative mb-4 h-24 w-24 overflow-hidden rounded-full ring-4 ring-blue-900/10">
                     <Image
                       src={service.image}
@@ -145,7 +145,7 @@ export default async function ServiceCategoryPage({
                 {faqItems.map((item) => (
                   <details
                     key={item.key}
-                    className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-4"
+                    className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-4"
                   >
                     <summary className="cursor-pointer text-sm font-semibold text-blue-900">
                       {item.question}
@@ -190,3 +190,4 @@ export default async function ServiceCategoryPage({
     </>
   );
 }
+

@@ -145,7 +145,7 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
   return (
     <section className={cn("py-4 sm:py-8", className)}>
       <div ref={sectionRef} className="relative left-1/2 w-screen -translate-x-1/2">
-        <div className="overflow-hidden border-y border-white/10 bg-neutral-900 shadow-[0_18px_40px_rgba(15,23,42,0.28)]">
+        <div className="overflow-hidden border-y border-cyan-300/25 bg-neutral-900 shadow-[0_18px_40px_rgba(15,23,42,0.28)]">
           <div className="relative h-[210px] sm:h-[320px] lg:h-[360px]">
             <div className="absolute inset-0 grid grid-cols-1 sm:grid-cols-3">
               {displayItems.map((item, index) => (
@@ -173,7 +173,7 @@ export function ScrollSpotlightHero({ items, className }: ScrollSpotlightHeroPro
             <div
               className="pointer-events-none absolute inset-0"
               style={{
-                background: `radial-gradient(circle at ${visualX}% ${visualY}%, rgba(125,211,252,0.28), rgba(59,130,246,0.1) 22%, rgba(0,0,0,0) 44%)`,
+                background: `radial-gradient(circle at ${visualX}% ${visualY}%, rgba(156,234,234,0.34), rgba(46,169,176,0.14) 22%, rgba(0,0,0,0) 44%)`,
               }}
             />
             <div className="tp-ambient-grid pointer-events-none absolute inset-0 opacity-20" />

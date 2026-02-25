@@ -19,7 +19,7 @@ export function ServiceMasthead({
     <section className="bg-neutral-100 py-10">
       <div className="tp-container grid gap-6 lg:grid-cols-[1fr_360px]">
         <Reveal x={-20} y={22}>
-          <div className="tp-soft-panel rounded-sm border border-neutral-200 bg-white p-8">
+          <div className="tp-soft-panel rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-8">
             <p className="text-xs uppercase tracking-[0.18em] text-blue-800">
               <Link href={`/${lang}`} className="hover:text-blue-600">
                 {dictionary.common.breadcrumbs.home}
@@ -57,3 +57,4 @@ export function ServiceMasthead({
     </section>
   );
 }
+

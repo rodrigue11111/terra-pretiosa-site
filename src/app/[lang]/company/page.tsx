@@ -40,7 +40,7 @@ export default async function CompanyPage({ params }: CompanyPageProps) {
           </Reveal>
 
           <Reveal x={24} y={20} delayMs={90}>
-            <div className="tp-card-lift relative min-h-[320px] overflow-hidden rounded-sm">
+            <div className="tp-card-lift relative min-h-[320px] overflow-hidden rounded-sm border border-blue-200/55 bg-blue-50/35">
               <Image
                 src="/placeholders/company-about.svg"
                 alt={dictionary.company.introTitle}
@@ -56,7 +56,7 @@ export default async function CompanyPage({ params }: CompanyPageProps) {
       <section id="corridor" className="py-14">
         <div className="tp-container grid gap-6 md:grid-cols-2">
           <Reveal x={-20} y={20}>
-            <article className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-6">
+            <article className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-6">
               <h2 className="text-2xl font-semibold uppercase tracking-[0.06em] text-blue-900">
                 {dictionary.company.corridorTitle}
               </h2>
@@ -69,7 +69,7 @@ export default async function CompanyPage({ params }: CompanyPageProps) {
           </Reveal>
 
           <Reveal x={20} y={20} delayMs={90}>
-            <article className="tp-card-lift rounded-sm border border-neutral-200 bg-neutral-50 p-6">
+            <article className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-blue-50/70 to-white p-6">
               <h2 className="text-2xl font-semibold uppercase tracking-[0.06em] text-blue-900">
                 {dictionary.company.hqTitle}
               </h2>
@@ -82,7 +82,7 @@ export default async function CompanyPage({ params }: CompanyPageProps) {
       <section id="megatrends" className="bg-neutral-100 py-14">
         <div className="tp-container grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal x={-20} y={18}>
-            <div className="tp-card-lift relative min-h-[260px] overflow-hidden rounded-sm">
+            <div className="tp-card-lift relative min-h-[260px] overflow-hidden rounded-sm border border-blue-200/55 bg-blue-50/35">
               <Image
                 src="/placeholders/company-megatrends.svg"
                 alt={dictionary.company.megatrendsTitle}
@@ -134,7 +134,7 @@ export default async function CompanyPage({ params }: CompanyPageProps) {
           </Reveal>
 
           <Reveal x={20} y={20} delayMs={90}>
-            <div className="tp-card-lift relative min-h-[260px] overflow-hidden rounded-sm">
+            <div className="tp-card-lift relative min-h-[260px] overflow-hidden rounded-sm border border-blue-200/55 bg-blue-50/35">
               <Image
                 src="/placeholders/company-sustainable.svg"
                 alt={dictionary.company.sustainableTitle}
@@ -157,7 +157,7 @@ export default async function CompanyPage({ params }: CompanyPageProps) {
               {dictionary.company.ambitionsBullets.map((bullet) => (
                 <li
                   key={bullet}
-                  className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-4"
+                  className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-4"
                 >
                   {bullet}
                 </li>
@@ -169,3 +169,4 @@ export default async function CompanyPage({ params }: CompanyPageProps) {
     </div>
   );
 }
+

@@ -17,7 +17,7 @@ export function NewsInsights({ dictionary }: NewsInsightsProps) {
         </Reveal>
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
           <Reveal y={26}>
-            <article className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-8">
+            <article className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-8">
               <h3 className="text-2xl font-semibold text-blue-900">
                 {dictionary.home.insights.featuredTitle}
               </h3>
@@ -36,7 +36,7 @@ export function NewsInsights({ dictionary }: NewsInsightsProps) {
           <div className="space-y-4">
             {dictionary.home.insights.items.map((item, index) => (
               <Reveal key={item.title} x={18} y={16} delayMs={index * 90}>
-                <article className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-5">
+                <article className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-5">
                   <h4 className="text-lg font-semibold text-blue-900">{item.title}</h4>
                   <p className="mt-2 text-sm text-slate-700">{item.excerpt}</p>
                   <Link
@@ -54,3 +54,4 @@ export function NewsInsights({ dictionary }: NewsInsightsProps) {
     </section>
   );
 }
+

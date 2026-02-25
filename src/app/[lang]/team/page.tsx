@@ -33,7 +33,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {dictionary.team.members.map((member, index) => (
             <Reveal key={member.name} y={20} delayMs={index * 80}>
-              <article className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-6">
+              <article className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-6">
                 <div className="relative h-24 w-24 overflow-hidden rounded-full ring-4 ring-blue-900/10">
                   <Image
                     src={member.image}
@@ -60,3 +60,4 @@ export default async function TeamPage({ params }: TeamPageProps) {
     </section>
   );
 }
+

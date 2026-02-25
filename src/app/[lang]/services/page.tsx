@@ -44,7 +44,7 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
             </div>
           </Reveal>
           <Reveal x={24} y={20} delayMs={80}>
-            <div className="tp-card-lift relative overflow-hidden rounded-sm border border-neutral-200 bg-white p-2">
+            <div className="tp-card-lift relative overflow-hidden rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-2">
               <div className="grid min-h-[170px] grid-cols-2 gap-2 sm:min-h-[240px]">
                 <div className="relative row-span-2 overflow-hidden rounded-sm">
                   <Image
@@ -92,7 +92,7 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
           <div className="mt-7 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {dictionary.services.categories.map((category, index) => (
               <Reveal key={category.slug} y={20} delayMs={index * 70}>
-                <article className="tp-card-lift rounded-sm border border-neutral-200 bg-white p-6">
+                <article className="tp-card-lift rounded-sm border border-blue-200/60 bg-gradient-to-br from-white to-blue-50/70 p-6">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-900 text-xs font-semibold text-white">
                     {category.icon}
                   </div>
@@ -126,3 +126,4 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
     </>
   );
 }
+

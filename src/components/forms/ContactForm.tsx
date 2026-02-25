@@ -100,12 +100,12 @@ export function ContactForm({ dictionary }: ContactFormProps) {
   };
 
   const fieldClass =
-    "w-full border border-neutral-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-blue-700 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.12)]";
+    "w-full border border-blue-200/70 bg-white/95 px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-blue-700 focus:shadow-[0_0_0_3px_rgba(46,169,176,0.18)]";
   const labelClass = "mb-1.5 block text-sm font-semibold text-slate-700";
 
   return (
     <form onSubmit={onSubmit} className="space-y-4">
-      <div className="rounded-sm border border-neutral-300 bg-neutral-100 p-4 sm:p-6">
+      <div className="rounded-sm border border-blue-200/60 bg-blue-50/60 p-4 sm:p-6">
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className={labelClass}>{dictionary.contact.formFields.firstName}</label>
@@ -252,7 +252,7 @@ export function ContactForm({ dictionary }: ContactFormProps) {
         </div>
       </div>
 
-      <div className="rounded-sm border border-neutral-300 bg-neutral-100 p-4 sm:p-6">
+      <div className="rounded-sm border border-blue-200/60 bg-blue-50/60 p-4 sm:p-6">
         <label className="flex items-start gap-3 text-sm text-slate-800">
           <input
             type="checkbox"
@@ -285,3 +285,4 @@ export function ContactForm({ dictionary }: ContactFormProps) {
     </form>
   );
 }
+
