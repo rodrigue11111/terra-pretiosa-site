@@ -1,19 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --tp-blue-900: #0d2e66;
-  --tp-blue-800: #19458a;
-  --tp-accent-500: #66cccc;
-  --tp-accent-300: #9be7e7;
+  --tp-blue-900: #1a4d5f;
+  --tp-blue-800: #1f6675;
+  --tp-accent-500: #66d5d5;
+  --tp-accent-300: #9ceaea;
   --tp-charcoal-900: #171a1f;
   --tp-charcoal-800: #232830;
   --tp-neutral-100: #f3f5f7;
+
+  /* Global brand palette override so all blue-* utilities match Terra Pretiosa logo */
+  --color-blue-50: #eefcfc;
+  --color-blue-100: #d7f6f6;
+  --color-blue-200: #b7eded;
+  --color-blue-300: #92e2e2;
+  --color-blue-400: #69d6d6;
+  --color-blue-500: #44c8cb;
+  --color-blue-600: #2ea9b0;
+  --color-blue-700: #23858e;
+  --color-blue-800: #1f6675;
+  --color-blue-900: #1a4d5f;
+  --color-blue-950: #0f2e3a;
 }
 
 body {
   background:
-    radial-gradient(circle at 10% 10%, rgba(13, 46, 102, 0.08), transparent 35%),
-    radial-gradient(circle at 85% 0%, rgba(25, 69, 138, 0.08), transparent 30%),
+    radial-gradient(circle at 10% 10%, rgba(26, 77, 95, 0.09), transparent 35%),
+    radial-gradient(circle at 85% 0%, rgba(46, 169, 176, 0.08), transparent 30%),
     #fff;
   color: #1f2937;
   animation: tpDrift 18s ease-in-out infinite alternate;
@@ -28,11 +41,11 @@ body {
 }
 
 .tp-blue-button {
-  @apply inline-flex items-center justify-center bg-blue-900 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition duration-300 hover:-translate-y-0.5 hover:bg-blue-950 hover:shadow-[0_12px_24px_rgba(13,46,102,0.35)];
+  @apply inline-flex items-center justify-center bg-gradient-to-r from-blue-800 to-blue-900 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition duration-300 hover:-translate-y-0.5 hover:from-blue-900 hover:to-blue-950 hover:shadow-[0_12px_24px_rgba(15,46,58,0.35)];
 }
 
 .tp-outline-button {
-  @apply inline-flex items-center justify-center border border-white/70 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/10;
+  @apply inline-flex items-center justify-center border border-white/75 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/12;
 }
 
 .tp-card-lift {
@@ -52,7 +65,7 @@ body {
 }
 
 .tp-logo-glow {
-  filter: drop-shadow(0 0 12px rgba(102, 204, 204, 0.28));
+  filter: drop-shadow(0 0 14px rgba(102, 213, 213, 0.34));
 }
 
 @keyframes tpDrift {
