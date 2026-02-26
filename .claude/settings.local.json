@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(git add src/app/globals.css src/app/[lang]/page.tsx src/components/home/HeroCarousel.tsx src/components/home/ServiceCardsGrid.tsx src/components/home/FeatureCircleRow.tsx src/components/home/NewsInsights.tsx src/components/layout/Footer.tsx)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
